@@ -1,2 +1,2 @@
 # MKS21X-FinalProject
-Team Gecko's Minesweeper
+Team Gecko's Amazing Minesweeper !!!
