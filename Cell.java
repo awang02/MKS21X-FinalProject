@@ -1,6 +1,19 @@
 public class Cell{
   private int coorX;
   private int coorY;
+  public boolean mine;// false means no mine; true means cell has mine
+  public int coveredStatus;// positive means uncovered; 0 means covered; negative means flagged
+
+
+  //constructors
+  //default constructor: sets
+  public Cell(){
+    mine = false;
+    coveredStatus = 0;
+  }
+
+  //methods start here
+
 
 
 
