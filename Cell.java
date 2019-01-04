@@ -12,11 +12,15 @@ public class Cell{
   }
 
   //methods start here
+  public boolean hasMine(){
+    return mine;
+  }
 
-
-
-
-
+/*  public int coveredStatus(){
+    if()
+    return
+  }
+  */
 
 }
 
