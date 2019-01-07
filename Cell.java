@@ -27,11 +27,15 @@ public class Cell{
   }
 
 
-
   //methods start here
   public boolean hasMine(){
     return mine;
   }
+
+  public void setMine(boolean pasta){
+    mine = pasta;
+  }
+
 
 /*  public int coveredStatus(){
     if()

@@ -10,8 +10,25 @@ public class Board{
   //constructors
   //this is the default grid which instatiates a 10 by 10 grid and plants 10 random mines
   public Board(){
+    //no mine, no num grid
     cellGrid = new Cell[10][10];
-    clear();
+    for(int r = 0; r < cellGrid.length; r++){
+      for(int c = 0; c < cellGrid[0].length; c++){
+        cellGrid[r][c] = new Cell(false, 0, 0, r, c);
+      }
+    }
+    //clear();
+    seed = 182; //random static integer for now
+    randgen = new Random(seed); //seed of randSeed is stored.
+    //this plants 10 random mines
+    for(int x = 0; x < 11; x++){
+      int coordX = Math.abs(randgen.nextInt(10));
+      int coordY = Math.abs(randgen.nextInt(10));
+      if(!cellGrid[coordX][coordY].hasMine()){
+        cellGrid[coordX][coordY].setMine(true);
+      }
+
+    }
   }
 
   //clean board
