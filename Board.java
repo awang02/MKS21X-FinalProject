@@ -21,13 +21,15 @@ public class Board{
     seed = 182; //random static integer for now
     randgen = new Random(seed); //seed of randSeed is stored.
     //this plants 10 random mines
-    for(int x = 0; x < 11; x++){
+    int counter = 0;
+    while (counter < 11){
       int coordX = Math.abs(randgen.nextInt(10));
       int coordY = Math.abs(randgen.nextInt(10));
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
+        //need to do a neighbor number assigning method here
+        counter ++;
       }
-
     }
   }
 
