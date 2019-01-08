@@ -67,11 +67,15 @@ public class Board{
 
   public String toString(){
     String print = "";
-    return "blah";
+    for (int t = 0; t < cellGrid.length; t++){
+      print += "|";
+      for (int y = 0; y < cellGrid[t].length - 1; y++){
+        print += cellGrid[t][y] + " ";
+      }
+      print += cellGrid[t][cellGrid[t].length - 1];
+      print += "|\n";
+    }
+    return print;
   }
-
-
-
-
 
 }
