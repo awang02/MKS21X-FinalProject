@@ -78,4 +78,16 @@ public class Board{
     return print;
   }
 
+
+  public static void main(String[] args) {
+    Board tester = new Board();
+    System.out.println(tester);
+  }
+
+
+
+
+
+
+
 }

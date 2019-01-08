@@ -36,6 +36,15 @@ public class Cell{
     mine = pasta;
   }
 
+  public String toString(){
+    if (mine){
+      return "!!";
+    }
+    else{
+      return mineNum + "";
+    }
+  }
+
 
 /*  public int coveredStatus(){
     if()
