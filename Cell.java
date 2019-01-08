@@ -28,6 +28,8 @@ public class Cell{
 
 
   //methods start here
+
+  //mine stuff
   public boolean hasMine(){
     return mine;
   }
@@ -36,9 +38,21 @@ public class Cell{
     mine = pasta;
   }
 
+
+  //will be called in Board to manipulate the mine's neighbor number
+  public void mineNumPlus(){
+    mineNum ++;
+  }
+
+  public void mineNumMinus(){
+    mineNum --;
+  }
+
+
+  //toString
   public String toString(){
     if (mine){
-      return "!!";
+      return "!";
     }
     else{
       return mineNum + "";

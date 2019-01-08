@@ -22,11 +22,26 @@ public class Board{
     randgen = new Random(seed); //seed of randSeed is stored.
     //this plants 10 random mines
     int counter = 0;
-    while (counter < 11){
+    while (counter < 10){
       int coordX = Math.abs(randgen.nextInt(10));
       int coordY = Math.abs(randgen.nextInt(10));
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
+        //neighbor mineNums all go up
+        try{
+          cellGrid[coordX][coordY + 1].mineNumPlus();
+          cellGrid[coordX][coordY - 1].mineNumPlus();
+          cellGrid[coordX + 1][coordY].mineNumPlus();
+          cellGrid[coordX - 1][coordY].mineNumPlus();
+          cellGrid[coordX + 1][coordY + 1].mineNumPlus();
+          cellGrid[coordX + 1][coordY - 1].mineNumPlus();
+          cellGrid[coordX - 1][coordY + 1].mineNumPlus();
+          cellGrid[coordX - 1][coordY - 1].mineNumPlus();
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+          System.out.println("bomb on edge");
+        }
+
         //need to do a neighbor number assigning method here
         counter ++;
       }
@@ -42,7 +57,7 @@ public class Board{
     }
   }
 
-  public int setNumber(){
+/*  public int setNumber(){
     // calculates the number of mines that are adjacent to the current cell.
     int mineCount = 0;
     int height = 10;
@@ -63,7 +78,7 @@ public class Board{
     }
     return mineCount;
   }
-
+*/
 
   public String toString(){
     String print = "";
