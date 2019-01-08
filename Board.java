@@ -11,9 +11,9 @@ public class Board{
   //this is the default grid which instatiates a 10 by 10 grid and plants 10 random mines
   public Board(){
     //no mine, no num grid
-    cellGrid = new Cell[12][12]; //buffer edge so we don't need to worry about exceptions
-    for(int r = 1; r < cellGrid.length - 1; r++){ // starting with index 1, because index 0 and 11 are buffers
-      for(int c = 1; c < cellGrid[0].length - 1; c++){
+    cellGrid = new Cell[10][10];
+    for(int r = 0; r < cellGrid.length; r++){
+      for(int c = 0; c < cellGrid[0].length; c++){
         cellGrid[r][c] = new Cell(false, 0, 0, r, c);
       }
     }
@@ -23,20 +23,24 @@ public class Board{
     //this plants 10 random mines
     int counter = 0;
     while (counter < 10){
-      int coordX = Math.abs(randgen.nextInt(10) + 1); //+ 1 to account for edge buffers
-      int coordY = Math.abs(randgen.nextInt(10) + 1);
+      int coordX = Math.abs(randgen.nextInt(10));
+      int coordY = Math.abs(randgen.nextInt(10));
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
         //neighbor mineNums all go up
-        cellGrid[coordX][coordY + 1].mineNumPlus();
-        cellGrid[coordX][coordY - 1].mineNumPlus();
-        cellGrid[coordX + 1][coordY].mineNumPlus();
-        cellGrid[coordX - 1][coordY].mineNumPlus();
-        cellGrid[coordX + 1][coordY + 1].mineNumPlus();
-        cellGrid[coordX + 1][coordY - 1].mineNumPlus();
-        cellGrid[coordX - 1][coordY + 1].mineNumPlus();
-        cellGrid[coordX - 1][coordY - 1].mineNumPlus();
-
+        try{
+          cellGrid[coordX][coordY + 1].mineNumPlus();
+          cellGrid[coordX][coordY - 1].mineNumPlus();
+          cellGrid[coordX + 1][coordY].mineNumPlus();
+          cellGrid[coordX - 1][coordY].mineNumPlus();
+          cellGrid[coordX + 1][coordY + 1].mineNumPlus();
+          cellGrid[coordX + 1][coordY - 1].mineNumPlus();
+          cellGrid[coordX - 1][coordY + 1].mineNumPlus();
+          cellGrid[coordX - 1][coordY - 1].mineNumPlus();
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+          System.out.println("bomb on edge");
+        }
 
         //need to do a neighbor number assigning method here
         counter ++;
@@ -78,9 +82,9 @@ public class Board{
 
   public String toString(){
     String print = "";
-    for (int t = 1; t < cellGrid.length; t++){
+    for (int t = 0; t < cellGrid.length; t++){
       print += "|";
-      for (int y = 1; y < cellGrid[t].length - 1; y++){
+      for (int y = 0; y < cellGrid[t].length - 1; y++){
         print += cellGrid[t][y] + " ";
       }
       print += cellGrid[t][cellGrid[t].length - 1];
