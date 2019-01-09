@@ -64,8 +64,9 @@ public class Board{
     //this plants 10 random mines
     int counter = 0;
     while (counter < mines){
-      int coordX = Math.abs(randgen.nextInt(mines)) + 1; //+1 to compensate buffer which shouldn't have mines
-      int coordY = Math.abs(randgen.nextInt(mines)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordX = Math.abs(randgen.nextInt(rows)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordY = Math.abs(randgen.nextInt(cols)) + 1; //+1 to compensate buffer which shouldn't have mines
+      System.out.println(coordX + "," + coordY);
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
         neighborMineNumsPlus(coordX, coordY);
@@ -129,9 +130,9 @@ public class Board{
 
 
   public static void main(String[] args) {
-    Board tester = new Board(15, 15, 10, 37223);
+  //  Board tester = new Board(15, 15, 10, 37223);
     //System.out.println(tester);
-    System.out.println(tester.toStringDebug());
+    //System.out.println(tester.toStringDebug());
     Board tester1 = new Board(15, 15, 10, 37253);
     System.out.println(tester1.toStringDebug());
     Board tester2 = new Board(15, 15, 10, 67223);
@@ -142,7 +143,7 @@ public class Board{
     System.out.println(tester4.toStringDebug());
     Board tester5 = new Board(15, 15, 10, 37);
     System.out.println(tester5.toStringDebug());
-    Board tester6 = new Board(15, 15, 10, 2);
+    Board tester6 = new Board(6, 6, 10, 2);
     System.out.println(tester6.toStringDebug());
 
   }
