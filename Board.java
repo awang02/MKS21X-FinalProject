@@ -80,12 +80,12 @@ public class Board{
 
   public String toString(){
     String print = "";
-    for (int t = 0; t < cellGrid.length; t++){
+    for (int t = 1; t < cellGrid.length - 1; t++){
       print += "|";
-      for (int y = 0; y < cellGrid[t].length - 1; y++){
+      for (int y = 1; y < cellGrid[t].length - 2; y++){
         print += cellGrid[t][y] + " ";
       }
-      print += cellGrid[t][cellGrid[t].length - 1];
+      print += cellGrid[t][cellGrid[t].length - 2];
       print += "|\n";
     }
     return print;
