@@ -36,18 +36,23 @@ public class Board{
       int coordY = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
-        //neighbor mineNums all go up
-        cellGrid[coordX][coordY + 1].mineNumPlus();
-        cellGrid[coordX][coordY - 1].mineNumPlus();
-        cellGrid[coordX + 1][coordY].mineNumPlus();
-        cellGrid[coordX - 1][coordY].mineNumPlus();
-        cellGrid[coordX + 1][coordY + 1].mineNumPlus();
-        cellGrid[coordX + 1][coordY - 1].mineNumPlus();
-        cellGrid[coordX - 1][coordY + 1].mineNumPlus();
-        cellGrid[coordX - 1][coordY - 1].mineNumPlus();
+        neighborMineNumsPlus(coordX, coordY);
         counter ++;
       }
     }
+  }
+
+  //helper funtion that makes neighbor mineNums all go up
+  public void neighborMineNumsPlus(theXCoord, theYCoord){
+    //neighbor mineNums all go up
+    cellGrid[coordX][coordY + 1].mineNumPlus();
+    cellGrid[coordX][coordY - 1].mineNumPlus();
+    cellGrid[coordX + 1][coordY].mineNumPlus();
+    cellGrid[coordX - 1][coordY].mineNumPlus();
+    cellGrid[coordX + 1][coordY + 1].mineNumPlus();
+    cellGrid[coordX + 1][coordY - 1].mineNumPlus();
+    cellGrid[coordX - 1][coordY + 1].mineNumPlus();
+    cellGrid[coordX - 1][coordY - 1].mineNumPlus();
   }
 
   //in other constructors (esp ones with scanner user inputs),
