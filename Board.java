@@ -66,29 +66,6 @@ public class Board{
     }
   }
 
-/*  public int setNumber(){
-    // calculates the number of mines that are adjacent to the current cell.
-    int mineCount = 0;
-    int height = 10;
-    int width = 10;
-    for (int x = 0; x<height; x++){
-      for (int y = 0; y<width; y++){
-        if ( (x>0 && y>0 && cellGrid[x-1][y-1].hasMine()) ||
-        (y>0 && cellGrid[x][y-1].hasMine()) ||
-        (x<height-1 && y>0 && cellGrid[x+1][y-1].hasMine()) ||
-        (x>0 && cellGrid[x-1][y].hasMine()) ||
-        (x<10 && cellGrid[x+1][y].hasMine()) ||
-        (x>0 && y<width-1 && cellGrid[x-1][y+1].hasMine()) ||
-        (y<width-1 && cellGrid[x][y+1].hasMine()) ||
-        (x<height-1 && y<width-1 && cellGrid[x+1][y+1].hasMine()) ) {
-          mineCount++;
-        }
-      }
-    }
-    return mineCount;
-  }
-*/
-
   public String toString(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
     String print = "";
@@ -122,8 +99,6 @@ public class Board{
     Board tester = new Board();
     System.out.println(tester);
   }
-
-
 
 
 
