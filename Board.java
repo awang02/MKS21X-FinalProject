@@ -37,19 +37,14 @@ public class Board{
       if(!cellGrid[coordX][coordY].hasMine()){
         cellGrid[coordX][coordY].setMine(true);
         //neighbor mineNums all go up
-        try{
-          cellGrid[coordX][coordY + 1].mineNumPlus();
-          cellGrid[coordX][coordY - 1].mineNumPlus();
-          cellGrid[coordX + 1][coordY].mineNumPlus();
-          cellGrid[coordX - 1][coordY].mineNumPlus();
-          cellGrid[coordX + 1][coordY + 1].mineNumPlus();
-          cellGrid[coordX + 1][coordY - 1].mineNumPlus();
-          cellGrid[coordX - 1][coordY + 1].mineNumPlus();
-          cellGrid[coordX - 1][coordY - 1].mineNumPlus();
-        }
-        catch (ArrayIndexOutOfBoundsException e){
-          System.out.println("bomb on edge");
-        }
+        cellGrid[coordX][coordY + 1].mineNumPlus();
+        cellGrid[coordX][coordY - 1].mineNumPlus();
+        cellGrid[coordX + 1][coordY].mineNumPlus();
+        cellGrid[coordX - 1][coordY].mineNumPlus();
+        cellGrid[coordX + 1][coordY + 1].mineNumPlus();
+        cellGrid[coordX + 1][coordY - 1].mineNumPlus();
+        cellGrid[coordX - 1][coordY + 1].mineNumPlus();
+        cellGrid[coordX - 1][coordY - 1].mineNumPlus();
         counter ++;
       }
     }
