@@ -1,3 +1,11 @@
+//to do list:
+//make a board constructor that works
+//for all cellGrid dimensions and number of mines (import scanner and do user input stuff)
+//make the random seed not static and print it in the toString for reference
+//also get ride of try catch block because we don't need them thanks to the buffers; make its contents a separate method
+//get started on the coveredStat of the cell & how that's going to works
+//lanterna and terminal stuff mastery
+
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 public class Board{
