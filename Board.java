@@ -26,7 +26,10 @@ public class Board{
       }
     }
     //clear();
-    seed = 182; //random static integer for now
+  //HOW TO RANDOMIZE SEED IN DEFAULT BOARD
+  //  Random randoSeed = new Random(748);
+  //  seed = Math.abs(randoSeed.nextInt())/10000;
+    seed = 473; //static seed for now
     randgen = new Random(seed); //seed of randSeed is stored.
     //this plants 10 random mines
     int counter = 0;
