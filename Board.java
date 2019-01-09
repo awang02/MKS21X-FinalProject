@@ -2,7 +2,6 @@
 //make a board constructor that works
 //for all cellGrid dimensions and number of mines (import scanner and do user input stuff)
 //make the random seed not static and print it in the toString for reference
-//also get ride of try catch block because we don't need them thanks to the buffers; make its contents are in a separate method
 //get started on the coveredStat of the cell & how that's going to works
 //lanterna and terminal stuff mastery
 //in constructor, also assign each new cell a coorX and coorY (do we need these fields though? reconsider)
@@ -43,16 +42,16 @@ public class Board{
   }
 
   //helper funtion that makes neighbor mineNums all go up
-  public void neighborMineNumsPlus(theXCoord, theYCoord){
+  public void neighborMineNumsPlus(int theXCoord, int theYCoord){
     //neighbor mineNums all go up
-    cellGrid[coordX][coordY + 1].mineNumPlus();
-    cellGrid[coordX][coordY - 1].mineNumPlus();
-    cellGrid[coordX + 1][coordY].mineNumPlus();
-    cellGrid[coordX - 1][coordY].mineNumPlus();
-    cellGrid[coordX + 1][coordY + 1].mineNumPlus();
-    cellGrid[coordX + 1][coordY - 1].mineNumPlus();
-    cellGrid[coordX - 1][coordY + 1].mineNumPlus();
-    cellGrid[coordX - 1][coordY - 1].mineNumPlus();
+    cellGrid[theXCoord][theYCoord + 1].mineNumPlus();
+    cellGrid[theXCoord][theYCoord - 1].mineNumPlus();
+    cellGrid[theXCoord + 1][theYCoord].mineNumPlus();
+    cellGrid[theXCoord - 1][theYCoord].mineNumPlus();
+    cellGrid[theXCoord + 1][theYCoord + 1].mineNumPlus();
+    cellGrid[theXCoord + 1][theYCoord - 1].mineNumPlus();
+    cellGrid[theXCoord - 1][theYCoord + 1].mineNumPlus();
+    cellGrid[theXCoord - 1][theYCoord - 1].mineNumPlus();
   }
 
   //in other constructors (esp ones with scanner user inputs),
