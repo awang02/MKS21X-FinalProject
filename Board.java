@@ -45,7 +45,10 @@ public class Board{
   }
 
   public Board(int rows, int cols, int mines, int seeder){
-    //no mine, no num grid
+    //if number of mines > number of cells existing, print error
+    if(mines > rows * cols){
+      throw new IndexOutOfBoundsException(); //wrong exception, find a better one
+    }
     cellGrid = new Cell[rows][cols]; //buffer cells on edges
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
@@ -126,9 +129,21 @@ public class Board{
 
 
   public static void main(String[] args) {
-    Board tester = new Board();
-    System.out.println(tester);
+    Board tester = new Board(15, 15, 10, 37223);
+    //System.out.println(tester);
     System.out.println(tester.toStringDebug());
+    Board tester1 = new Board(15, 15, 10, 37253);
+    System.out.println(tester1.toStringDebug());
+    Board tester2 = new Board(15, 15, 10, 67223);
+    System.out.println(tester2.toStringDebug());
+    Board tester3 = new Board(15, 15, 10, 223);
+    System.out.println(tester3.toStringDebug());
+    Board tester4 = new Board(15, 15, 10, 3723);
+    System.out.println(tester4.toStringDebug());
+    Board tester5 = new Board(15, 15, 10, 37);
+    System.out.println(tester5.toStringDebug());
+    Board tester6 = new Board(15, 15, 10, 2);
+    System.out.println(tester6.toStringDebug());
 
   }
 
