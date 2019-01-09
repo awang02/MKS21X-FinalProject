@@ -2,9 +2,10 @@
 //make a board constructor that works
 //for all cellGrid dimensions and number of mines (import scanner and do user input stuff)
 //make the random seed not static and print it in the toString for reference
-//also get ride of try catch block because we don't need them thanks to the buffers; make its contents a separate method
+//also get ride of try catch block because we don't need them thanks to the buffers; make its contents are in a separate method
 //get started on the coveredStat of the cell & how that's going to works
 //lanterna and terminal stuff mastery
+//in constructor, also assign each new cell a coorX and coorY (do we need these fields though? reconsider)
 
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
@@ -53,6 +54,9 @@ public class Board{
       }
     }
   }
+
+  //in other constructors (esp ones with scanner user inputs),
+  //don't forget to add 2 to rows & columns for the buffer
 
   //clean board
   private void clear(){
