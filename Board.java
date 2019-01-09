@@ -77,7 +77,7 @@ public class Board{
       print += cellGrid[t][cellGrid[t].length - 2];
       print += "|\n";
     }
-    return print;
+    return print + "\nSeed: " + seed;
   }
 
   public String toStringDebug(){
@@ -91,7 +91,7 @@ public class Board{
       print += cellGrid[t][cellGrid[t].length - 1];
       print += "|\n";
     }
-    return print;
+    return print + "\nSeed: " + seed;
   }
 
 
