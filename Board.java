@@ -44,6 +44,33 @@ public class Board{
     }
   }
 
+  public Board(int rows, int cols, int mines, int seeder){
+    //no mine, no num grid
+    cellGrid = new Cell[rows][cols]; //buffer cells on edges
+    for(int r = 0; r < cellGrid.length; r++){
+      for(int c = 0; c < cellGrid[0].length; c++){
+        cellGrid[r][c] = new Cell(false, 0, 0, r, c);
+      }
+    }
+    //clear();
+  //HOW TO RANDOMIZE SEED IN DEFAULT BOARD
+  //  Random randoSeed = new Random(748);
+  //  seed = Math.abs(randoSeed.nextInt())/10000;
+    seed = seeder; //static seed for now
+    randgen = new Random(seed); //seed of randSeed is stored.
+    //this plants 10 random mines
+    int counter = 0;
+    while (counter < mines){
+      int coordX = Math.abs(randgen.nextInt(mines)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordY = Math.abs(randgen.nextInt(mines)) + 1; //+1 to compensate buffer which shouldn't have mines
+      if(!cellGrid[coordX][coordY].hasMine()){
+        cellGrid[coordX][coordY].setMine(true);
+        neighborMineNumsPlus(coordX, coordY);
+        counter ++;
+      }
+    }
+  }
+
   //helper funtion that makes neighbor mineNums all go up
   public void neighborMineNumsPlus(int theXCoord, int theYCoord){
     //neighbor mineNums all go up
@@ -101,6 +128,8 @@ public class Board{
   public static void main(String[] args) {
     Board tester = new Board();
     System.out.println(tester);
+    System.out.println(tester.toStringDebug());
+
   }
 
 

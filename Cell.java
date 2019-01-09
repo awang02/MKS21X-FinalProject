@@ -44,10 +44,6 @@ public class Cell{
     mineNum ++;
   }
 
-  public void mineNumMinus(){
-    mineNum --;
-  }
-
 
   //toString
   public String toString(){
