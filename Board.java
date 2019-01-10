@@ -31,18 +31,7 @@ public class Board{
   //  seed = Math.abs(randoSeed.nextInt())/10000;
     seed = 473; //static seed for now
     randgen = new Random(seed); //seed of randSeed is stored.
-    //this plants 10 random mines
-    int counter = 0;
-    while (counter < 10){
-      int coordX = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
-      int coordY = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
-      System.out.println(coordX + "," + coordY);
-      if(!cellGrid[coordX][coordY].hasMine()){
-        cellGrid[coordX][coordY].setMine(true);
-        neighborMineNumsPlus(coordX, coordY);
-        counter ++;
-      }
-    }
+    placeMines(10); //this plants 10 random mines
   }
 
   public Board(int rows, int cols, int mines, int seeder){
@@ -63,20 +52,25 @@ public class Board{
     seed = seeder; //static seed for now
     randgen = new Random(seed); //seed of randSeed is stored.
     //this plants 10 random mines
+    placeMines(mines);
+  }
+
+  // helper function that places mines on the board
+  public void placeMines(int minesOnBoard) {
     int counter = 0;
-    while (counter < mines){
-      int coordX = Math.abs(randgen.nextInt(rows)) + 1; //+1 to compensate buffer which shouldn't have mines
-      int coordY = Math.abs(randgen.nextInt(cols)) + 1; //+1 to compensate buffer which shouldn't have mines
+    while (counter < minesOnBoard) {
+      int coordX = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordY = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
       System.out.println(coordX + "," + coordY);
-      if(!cellGrid[coordX][coordY].hasMine()){
+      if(!cellGrid[coordX][coordY].isMine()){
         cellGrid[coordX][coordY].setMine(true);
-        neighborMineNumsPlus(coordX, coordY);
+        neighborMineNumsPlus(coordX, coordY); // this helper function assigns minenums to all adjacent cells of a mine
         counter ++;
       }
     }
   }
 
-  //helper funtion that makes neighbor mineNums all go up
+  //helper funtion that makes assigns neighbor (adjacent) mineNums all go up
   public void neighborMineNumsPlus(int theXCoord, int theYCoord){
     //neighbor mineNums all go up
     cellGrid[theXCoord][theYCoord + 1].mineNumPlus();
@@ -129,11 +123,10 @@ public class Board{
     return print + "\nSeed: " + seed;
   }
 
-
   public static void main(String[] args) {
     Board tester = new Board();
     System.out.println(tester);
-    //System.out.println(tester.toStringDebug());
+    System.out.println(tester.toStringDebug());
 //    Board tester1 = new Board(15, 15, 10, 37253);
 //    System.out.println(tester1.toStringDebug());
 //    Board tester2 = new Board(15, 15, 10, 67223);

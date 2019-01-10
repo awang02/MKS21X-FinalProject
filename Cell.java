@@ -30,7 +30,7 @@ public class Cell{
   //methods start here
 
   //mine stuff
-  public boolean hasMine(){
+  public boolean isMine(){
     return mine;
   }
 
@@ -38,12 +38,10 @@ public class Cell{
     mine = pasta;
   }
 
-
-  //will be called in Board to manipulate the mine's neighbor number
+  //Called in Board once a mine is placed to manipulate the mine's neighbor number
   public void mineNumPlus(){
     mineNum ++;
   }
-
 
   //toString
   public String toString(){
@@ -54,7 +52,6 @@ public class Cell{
       return mineNum + "";
     }
   }
-
 
 /*  public int coveredStatus(){
     if()
