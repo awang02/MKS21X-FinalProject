@@ -14,3 +14,6 @@ Geena: Today, I coded the randomized mine assignments in the Board class. On top
 
 1/8/18
 Geena: I coded how each cell will keep track of the number of neighboring cells with mines (aka the mineNum): for each mine that gets placed, the mineNum of the surrounding cells increase by 1 (Board class class mineNumPlus from the Cell class). To eliminate all the edge cases and exception errors arising with this system, I coded 2 extra buffer rows and columns which will never have mines and never show up on the printed board the user will interact with. I coded the toString and toStringDebug methods and later updated the Board's toString to compensate for the extra buffer rows and columns.
+
+1/9/18
+Geena: I coded a helper function for the Board constructor called neighborMineNumsPlus. Also began the generic constructor that can take in any amount of numbers, I also added some exceptions there where it was applicable. Then I added a bunch of test cases, some of them still don't work which needs to be fixed.
