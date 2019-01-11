@@ -39,6 +39,7 @@ public class Board{
     if(mines > rows * cols){
       throw new IndexOutOfBoundsException(); //wrong exception, find a better one
     }
+    Scanner input = new Scanner(text);
     cellGrid = new Cell[rows][cols]; //buffer cells on edges
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
