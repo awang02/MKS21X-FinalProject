@@ -14,32 +14,36 @@ public class Driver{
     String instruction = "ENTER INSTRUCTION HERE L8TER";
 
     try{
+
     //if number of mines > number of cells existing, print error
       if((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)){
-          System.out.println("The row and column must be positive" + '\n' + instruction);
-          System.exit(1);
-        }
-        if (args.length < 3){
-          System.out.println(instruction);
-        }
-        if (args.length == 3){
-          defaultRow = Integer.parseInt(args[0]);
-          defaultCol = Integer.parseInt(args[1]);
-          defaultMines = Integer.parseInt(args[2]);
-          System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
-        }
-
-        if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
-          System.out.println("The seed (fourth argument) must be between 0 and 10000 inclusive" + '\n' + instruction);
-          System.exit(1);
-        }
-        if (args.length == 4){
-          defaultRow = Integer.parseInt(args[0]);
-          defaultCol = Integer.parseInt(args[1]);
-          defaultMines = Integer.parseInt(args[2]);
-          seed = Integer.parseInt(args[3]);
-          System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
-        }
+        System.out.println("The row and column must be positive" + '\n' + instruction);
+        System.exit(1);
+      }
+      if (args.length > 2 && Integer.parseInt(args[0]) * Integer.parseInt(args[1]) > Integer.parseInt(args[2])){
+        System.out.println("The number of mines exceeds the number of cells" + '\n' + instruction);
+        System.exit(1);
+      }
+      if (args.length < 3){
+        System.out.println(instruction);
+      }
+      if (args.length == 3){
+        defaultRow = Integer.parseInt(args[0]);
+        defaultCol = Integer.parseInt(args[1]);
+        defaultMines = Integer.parseInt(args[2]);
+        System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
+      }
+      if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
+        System.out.println("The seed (fourth argument) must be between 0 and 10000 inclusive" + '\n' + instruction);
+        System.exit(1);
+      }
+      if (args.length == 4 || args.length > 4){
+        defaultRow = Integer.parseInt(args[0]);
+        defaultCol = Integer.parseInt(args[1]);
+        defaultMines = Integer.parseInt(args[2]);
+        seed = Integer.parseInt(args[3]);
+        System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
+      }
     }
     catch(Exception e){
       System.out.println("You messed up somewhere hun. Check yo self" + '\n' + instruction);
