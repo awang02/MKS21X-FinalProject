@@ -4,6 +4,9 @@ public class Driver{
     //rows & cols
     int defaultRow = 10;
     int defaultCol = 10;
+    //randSeed
+    Random randooo = new Random();
+    int seed = randooo.nextInt(1001);
 
 
     //if number of mines > number of cells existing, print error
