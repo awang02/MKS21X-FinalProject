@@ -22,6 +22,12 @@ public class Driver{
         if (args.length < 3){
           System.out.println(instruction);
         }
+        if (args.length == 3){
+          defaultRow = Integer.parseInt(args[0]);
+          defaultCol = Integer.parseInt(args[1]);
+          defaultMines = Integer.parseInt(args[2]);
+          System.out.println(new WordSearch(defaultRow, defaultCol, defaultMines, seed));
+        }
     }
     catch(Exception e){
       System.out.println("You messed up somewhere hun. Check yo self" + '\n' + instruction);
