@@ -15,10 +15,13 @@ public class Driver{
 
     try{
     //if number of mines > number of cells existing, print error
-    if((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)){
-        System.out.println("The row and column must be positive" + '\n' + instruction);
-        System.exit(1);
-      }
+      if((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)){
+          System.out.println("The row and column must be positive" + '\n' + instruction);
+          System.exit(1);
+        }
+        if (args.length < 3){
+          System.out.println(instruction);
+        }
     }
     catch(Exception e){
       System.out.println("You messed up somewhere hun. Check yo self" + '\n' + instruction);
