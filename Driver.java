@@ -11,7 +11,8 @@ public class Driver{
     Random randooo = new Random();
     int seed = randooo.nextInt(1001);
 
-    String instruction = "ENTER INSTRUCTION HERE L8TER";
+    //CREATE BETTER INSTRUCTIONS L8ER
+    String instruction = "enter number of rows, number of columns and number of mines. optional: enter seed num";
 
     try{
 
