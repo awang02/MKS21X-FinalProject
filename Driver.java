@@ -1,3 +1,5 @@
+import java.util.*; //random, scanner, arraylist
+import java.io.*; //file, filenotfoundexception
 public class Driver{
   public static void main(String[] args) {
     //Board(int rows, int cols, int mines, int seeder): constructor for reference
