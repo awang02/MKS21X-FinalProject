@@ -23,4 +23,7 @@ Geena: I coded a helper function for the Board constructor called neighborMineNu
 Allen: Worked on trying to implement lanterna with the existing board and cell classes.
 
 1/10/18
+Geena: Today, we created a driver class to test our code. Now our code can interact with the user with some instructions to guide them, this also makes testing our code a lot easier. I was also able to add in default values and try catch statements to make the code much more robust.
+
+
 Allen: Worked on optimizing the helper functions in the board class.
