@@ -35,10 +35,6 @@ public class Board{
   }
 
   public Board(int rows, int cols, int mines, int seeder){
-    //if number of mines > number of cells existing, print error
-    if(mines > rows * cols){
-      throw new IndexOutOfBoundsException(); //wrong exception, find a better one
-    }
     cellGrid = new Cell[rows][cols]; //buffer cells on edges
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
