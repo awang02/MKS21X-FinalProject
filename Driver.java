@@ -26,7 +26,19 @@ public class Driver{
           defaultRow = Integer.parseInt(args[0]);
           defaultCol = Integer.parseInt(args[1]);
           defaultMines = Integer.parseInt(args[2]);
-          System.out.println(new WordSearch(defaultRow, defaultCol, defaultMines, seed));
+          System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
+        }
+
+        if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
+          System.out.println("The seed (fourth argument) must be between 0 and 10000 inclusive" + '\n' + instruction);
+          System.exit(1);
+        }
+        if (args.length == 4){
+          defaultRow = Integer.parseInt(args[0]);
+          defaultCol = Integer.parseInt(args[1]);
+          defaultMines = Integer.parseInt(args[2]);
+          seed = Integer.parseInt(args[3]);
+          System.out.println(new Board(defaultRow, defaultCol, defaultMines, seed));
         }
     }
     catch(Exception e){
