@@ -1,5 +1,3 @@
-
-
 //API : http://mabe02.github.io/lanterna/apidocs/2.1/
 import com.googlecode.lanterna.terminal.Terminal.SGR;
 import com.googlecode.lanterna.TerminalFacade;
@@ -56,8 +54,8 @@ public class TerminalDemo {
 
 
 			terminal.moveCursor(size.getColumns()-5,5);
-			terminal.applyBackgroundColor(Terminal.Color.RED);
-			terminal.applyForegroundColor(Terminal.Color.YELLOW);
+			terminal.applyBackgroundColor(Terminal.Color.BLUE);
+			terminal.applyForegroundColor(Terminal.Color.WHITE);
 			terminal.applySGR(Terminal.SGR.ENTER_BOLD);
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
@@ -68,8 +66,8 @@ public class TerminalDemo {
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
-			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
-			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
+			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
+			terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
 
 			Key key = terminal.readInput();
 
