@@ -27,3 +27,6 @@ Geena: Today, we created a driver class to test our code. Now our code can inter
 
 
 Allen: Worked on optimizing the helper functions in the board class.
+
+1/14/18
+Geena: I was able to move my files around so that lanterna could actually interact with my Board class over the weekend. I worked with Lanterna and got comfortable with what changing colors and commands did. 
