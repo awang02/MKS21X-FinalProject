@@ -52,22 +52,21 @@ public class Driver{
 
 
 
-  /*  Board tester = new Board();
+    Board tester = new Board();
     System.out.println(tester);
-    System.out.println(tester.toStringDebug());
     Board tester1 = new Board(15, 15, 10, 37253);
-    System.out.println(tester1.toStringDebug());
+    System.out.println(tester1);
     Board tester2 = new Board(15, 15, 10, 67223);
-    System.out.println(tester2.toStringDebug());
+    System.out.println(tester2);
     Board tester3 = new Board(15, 15, 10, 223);
-    System.out.println(tester3.toStringDebug());
+    System.out.println(tester3);
     Board tester4 = new Board(15, 15, 10, 3723);
-    System.out.println(tester4.toStringDebug());
-    Board tester5 = new Board(15, 15, 10, 37);
-    System.out.println(tester5.toStringDebug());
+    System.out.println(tester4);
+    Board tester5 = new Board(15, 15, 10, 3723); //CRASHES WHYYY
+    System.out.println(tester5);
     Board tester6 = new Board(6, 6, 10, 2);
-    System.out.println(tester6.toStringDebug());
-    */
+    System.out.println(tester6);
+    //*/
   }
 
 
