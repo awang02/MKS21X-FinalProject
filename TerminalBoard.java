@@ -1,3 +1,7 @@
+//******* COMPILE AND RUN VIA LINES BELOW YO
+//javac -cp lanterna.jar:. TerminalBoard.java
+//java -cp lanterna.jar:. TerminalBoard
+
 //API : http://mabe02.github.io/lanterna/apidocs/2.1/
 import com.googlecode.lanterna.terminal.Terminal.SGR;
 import com.googlecode.lanterna.TerminalFacade;
@@ -23,7 +27,62 @@ public class TerminalBoard{
 	}
 
 	public static void main(String[] args){
-    
+
+  	int x = 10;
+  	int y = 10;
+
+    Terminal terminal = TerminalFacade.createTextTerminal();
+    terminal.enterPrivateMode();
+
+  	TerminalSize size = terminal.getTerminalSize();
+  	terminal.setCursorVisible(false);
+
+    Key key = terminal.readInput();
+
+    if (key != null)
+    {
+
+      if (key.getKind() == Key.Kind.Escape) {
+
+        terminal.exitPrivateMode();
+        running = false;
+      }
+
+      if (key.getKind() == Key.Kind.ArrowLeft) {
+        terminal.moveCursor(x,y);
+        terminal.putCharacter(' ');
+        x--;
+      }
+
+      if (key.getKind() == Key.Kind.ArrowRight) {
+        terminal.moveCursor(x,y);
+        terminal.putCharacter(' ');
+        x++;
+      }
+
+      if (key.getKind() == Key.Kind.ArrowUp) {
+        terminal.moveCursor(x,y);
+        terminal.putCharacter(' ');
+        y--;
+      }
+
+      if (key.getKind() == Key.Kind.ArrowDown) {
+        terminal.moveCursor(x,y);
+        terminal.putCharacter(' ');
+        y++;
+      }
+      //space moves it diagonally
+      if (key.getCharacter() == ' ') {
+        terminal.moveCursor(x,y);
+        terminal.putCharacter(' ');
+        y++;
+        x++;
+      }
+      putString(1,4,terminal,"["+key.getCharacter() +"]");
+      putString(1,1,terminal,key+"        ");//to clear leftover letters pad withspaces
+    }
+
+
   }
 
 }
