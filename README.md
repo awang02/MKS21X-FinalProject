@@ -29,4 +29,7 @@ Geena: Today, we created a driver class to test our code. Now our code can inter
 Allen: Worked on optimizing the helper functions in the board class.
 
 1/14/18
-Geena: I was able to move my files around so that lanterna could actually interact with my Board class over the weekend. I worked with Lanterna and got comfortable with what changing colors and commands did. 
+I was able to move my files around so that lanterna could actually interact with my Board class over the weekend. I worked with Lanterna and got comfortable with what changing colors and commands did.
+
+1/15/18
+I created a new class TerminalBoard to do all the lanterna stuff but quickly realized I made the Driver class do a bunch of main(String[] args) stuff that I need. So I combined everything useful from TerminalBoard into the Driver. But before I did that, I tested a bunch of new cases (edge/exception/etc) using terminal inputs, everything seems pretty a-okay.
