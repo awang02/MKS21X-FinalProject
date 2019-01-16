@@ -19,6 +19,7 @@ import com.googlecode.lanterna.input.KeyMappingProfile;
 
 
 public class TerminalBoard{
+
   public static void putString(int r, int c,Terminal t, String s){
 		t.moveCursor(r,c);
 		for(int i = 0; i < s.length();i++){
@@ -58,20 +59,20 @@ public class TerminalBoard{
 
 
 			terminal.moveCursor(size.getColumns()-5,5);
-			terminal.applyBackgroundColor(Terminal.Color.BLUE);
-			terminal.applyForegroundColor(Terminal.Color.WHITE);
+	//		terminal.applyBackgroundColor(Terminal.Color.BLUE);
+	//		terminal.applyForegroundColor(Terminal.Color.WHITE);
 			terminal.applySGR(Terminal.SGR.ENTER_BOLD);
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
-			terminal.putCharacter('\u262d');
+	//		terminal.putCharacter('\u262d');
 			terminal.putCharacter(' ');
 			terminal.moveCursor(size.getColumns()-5,6);
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
 			terminal.putCharacter(' ');
-			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
-			terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
+	//		terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
+	//		terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
 
 			Key key = terminal.readInput();
 
