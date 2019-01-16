@@ -1,5 +1,25 @@
+//******* COMPILE AND RUN VIA LINES BELOW YO
+//javac -cp lanterna.jar:. TerminalBoard.java
+//java -cp lanterna.jar:. TerminalBoard
+
+//API : http://mabe02.github.io/lanterna/apidocs/2.1/
+import com.googlecode.lanterna.terminal.Terminal.SGR;
+import com.googlecode.lanterna.TerminalFacade;
+import com.googlecode.lanterna.input.Key;
+import com.googlecode.lanterna.input.Key.Kind;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.Terminal.Color;
+import com.googlecode.lanterna.terminal.TerminalSize;
+import com.googlecode.lanterna.LanternaException;
+import com.googlecode.lanterna.input.CharacterPattern;
+import com.googlecode.lanterna.input.InputDecoder;
+import com.googlecode.lanterna.input.InputProvider;
+import com.googlecode.lanterna.input.Key;
+import com.googlecode.lanterna.input.KeyMappingProfile;
+
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
+
 public class Driver{
   public static void main(String[] args) {
     //Board(int rows, int cols, int mines, int seeder): constructor for reference
