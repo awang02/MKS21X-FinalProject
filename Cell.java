@@ -18,7 +18,7 @@ public class Cell{
 
   public Cell(boolean aMine, int coveredStat, int mineNumber, int theX, int theY){
     mine = aMine;
-    coveredStatus = coveredStat;
+    coveredStatus = 0;
     coorX = theX;
     coorY = theY;
     if(mine == true){
@@ -53,10 +53,5 @@ public class Cell{
     }
   }
 
-/*  public int coveredStatus(){
-    if()
-    return
-  }
-  */
 
 }
