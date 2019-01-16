@@ -37,6 +37,12 @@ public class TerminalBoard{
   	TerminalSize size = terminal.getTerminalSize();
   	terminal.setCursorVisible(false);
 
+    boolean running = true;
+
+		long tStart = System.currentTimeMillis();
+		long lastSecond = 0;
+
+
     Key key = terminal.readInput();
 
     if (key != null)
