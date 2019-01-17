@@ -87,18 +87,12 @@ public class Driver{
     	{
         //DEALING WITH COVERED SYMBOLS
         //this one is for flagging a cell (press Tab)
-        if (key.getKind() == Key.Kind.Tab ) {
+        if (key.getKind() == Key.Kind.Tab) {
     			terminal.putCharacter('ø');
     		}
-        if (key.getKind() == Key.Kind.ArrowRight) {
-    			terminal.moveCursor(x,y);
-    			terminal.putCharacter('I');
-    			x++;
-    		}
-        if (key.getKind() == Key.Kind.ArrowRight) {
-    			terminal.moveCursor(x,y);
-    			terminal.putCharacter('I');
-    			x++;
+        //this one is for uncovering a cell (press Enter)
+        if (key.getKind() == Key.Kind.Enter) {
+    			terminal.putCharacter('8');
     		}
 
 
@@ -110,31 +104,31 @@ public class Driver{
 
     		if (key.getKind() == Key.Kind.ArrowLeft) {
     			terminal.moveCursor(x,y);
-					terminal.putCharacter('G');
+				//	terminal.putCharacter('G');
     			x--;
     		}
 
     		if (key.getKind() == Key.Kind.ArrowRight) {
     			terminal.moveCursor(x,y);
-    			terminal.putCharacter('I');
+    		//	terminal.putCharacter('I');
     			x++;
     		}
 
     		if (key.getKind() == Key.Kind.ArrowUp) {
     			terminal.moveCursor(x,y);
-    			terminal.putCharacter('N');
+    		//	terminal.putCharacter('N');
     			y--;
   			}
 
     		if (key.getKind() == Key.Kind.ArrowDown) {
     			terminal.moveCursor(x,y);
-    			terminal.putCharacter('A');
+    		//	terminal.putCharacter('A');
     			y++;
     		}
     		//space moves it diagonally
     		if (key.getCharacter() == ' ') {
   				terminal.moveCursor(x,y);
-    			terminal.putCharacter('K');
+    		//	terminal.putCharacter('K');
     			y++;
     			x++;
     		}
