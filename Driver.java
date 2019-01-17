@@ -92,22 +92,21 @@ public class Driver{
 
 */
 
-    Board tester = new Board();
-    System.out.println(tester);
+//    Board tester = new Board();
+//    System.out.println(tester);
     Board tester1 = new Board(15, 15, 15, 37253);
     System.out.println(tester1);
-    Board tester2 = new Board(15, 15, 10, 67223);
-    System.out.println(tester2);
-    Board tester3 = new Board(15, 15, 10, 223);
-    System.out.println(tester3);
-    Board tester4 = new Board(15, 15, 10, 3723);
-    System.out.println(tester4);
+//    Board tester2 = new Board(15, 15, 10, 67223);
+//    System.out.println(tester2);
+//    Board tester3 = new Board(15, 15, 10, 223);
+//    System.out.println(tester3);
+//    Board tester4 = new Board(15, 15, 10, 3723);
+//    System.out.println(tester4);
 //    Board tester5 = new Board(15, 15, 10, 3723); //CRASHES WHYYY
 //    System.out.println(tester5);
 //    Board tester6 = new Board(6, 6, 10, 2);
 //    System.out.println(tester6);
     //*/
-
 
 
     		long tStart = System.currentTimeMillis();
@@ -149,9 +148,7 @@ public class Driver{
 
     			if (key != null)
     			{
-
     				if (key.getKind() == Key.Kind.Escape) {
-
     					terminal.exitPrivateMode();
     					running = false;
     				}

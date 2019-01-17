@@ -93,7 +93,7 @@ public class Board{
 
   public String toString(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
-    String print = "";
+    String print = "|";
     for (int t = 1; t < cellGrid.length - 1; t++){
       print += "|";
       for (int y = 1; y < cellGrid[t].length - 2; y++){
