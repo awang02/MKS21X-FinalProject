@@ -22,7 +22,7 @@ public class Cell{
     coorX = theX;
     coorY = theY;
     if(mine == true){
-      mineNum = (mineNum * 0) - 15; //mine cells have mineNum -15;
+      mineNum = (mineNum * 0) - 20; //mine cells have mineNum - 20 (or some neg number);
     }
   }
 

@@ -1,6 +1,6 @@
 //******* COMPILE AND RUN VIA LINES BELOW YO
-//javac -cp lanterna.jar:. TerminalBoard.java
-//java -cp lanterna.jar:. TerminalBoard
+//javac -cp lanterna.jar:. Driver.java
+//java -cp lanterna.jar:. Driver
 
 //API : http://mabe02.github.io/lanterna/apidocs/2.1/
 import com.googlecode.lanterna.terminal.Terminal.SGR;
@@ -19,6 +19,8 @@ import com.googlecode.lanterna.input.KeyMappingProfile;
 
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Driver{
   public static void putString(int r, int c,Terminal t, String s){
@@ -28,6 +30,17 @@ public class Driver{
 		}
 	}
   public static void main(String[] args) {
+    int x = 10;
+    int y = 10;
+
+    Terminal terminal = TerminalFacade.createTextTerminal();
+    terminal.enterPrivateMode();
+
+    TerminalSize size = terminal.getTerminalSize();
+    terminal.setCursorVisible(false);
+
+    boolean running = true;
+
     //Board(int rows, int cols, int mines, int seeder): constructor for reference
     //rows & cols & mines
     int defaultRow = 10;
@@ -88,25 +101,13 @@ public class Driver{
     System.out.println(tester3);
     Board tester4 = new Board(15, 15, 10, 3723);
     System.out.println(tester4);
-    Board tester5 = new Board(15, 15, 10, 3723); //CRASHES WHYYY
-    System.out.println(tester5);
-    Board tester6 = new Board(6, 6, 10, 2);
-    System.out.println(tester6);
+//    Board tester5 = new Board(15, 15, 10, 3723); //CRASHES WHYYY
+//    System.out.println(tester5);
+//    Board tester6 = new Board(6, 6, 10, 2);
+//    System.out.println(tester6);
     //*/
 
 
-
-
-    		int x = 10;
-    		int y = 10;
-
-    		Terminal terminal = TerminalFacade.createTextTerminal();
-    		terminal.enterPrivateMode();
-
-    		TerminalSize size = terminal.getTerminalSize();
-    		terminal.setCursorVisible(false);
-
-    		boolean running = true;
 
     		long tStart = System.currentTimeMillis();
     		long lastSecond = 0;
@@ -129,15 +130,15 @@ public class Driver{
     	//		terminal.applyBackgroundColor(Terminal.Color.BLUE);
     	//		terminal.applyForegroundColor(Terminal.Color.WHITE);
     			terminal.applySGR(Terminal.SGR.ENTER_BOLD);
-    			terminal.putCharacter(' ');
-    			terminal.putCharacter(' ');
+    			terminal.putCharacter('A');
+    			terminal.putCharacter('B');
     	//		terminal.putCharacter('\u262d');
-    			terminal.putCharacter(' ');
+    			terminal.putCharacter('C');
     			terminal.moveCursor(size.getColumns()-5,6);
-    			terminal.putCharacter(' ');
-    			terminal.putCharacter(' ');
-    			terminal.putCharacter(' ');
-    			terminal.putCharacter(' ');
+    			terminal.putCharacter('D');
+    			terminal.putCharacter('E');
+    			terminal.putCharacter('F');
+    			terminal.putCharacter('G');
     	//		terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
     	//		terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
 
