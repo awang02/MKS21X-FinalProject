@@ -158,36 +158,36 @@ public class Driver{
 
     				if (key.getKind() == Key.Kind.ArrowLeft) {
     					terminal.moveCursor(x,y);
-    					terminal.putCharacter(' ');
+    					terminal.putCharacter('G');
     					x--;
     				}
 
     				if (key.getKind() == Key.Kind.ArrowRight) {
     					terminal.moveCursor(x,y);
-    					terminal.putCharacter(' ');
+    					terminal.putCharacter('I');
     					x++;
     				}
 
     				if (key.getKind() == Key.Kind.ArrowUp) {
     					terminal.moveCursor(x,y);
-    					terminal.putCharacter(' ');
+    					terminal.putCharacter('N');
     					y--;
     				}
 
     				if (key.getKind() == Key.Kind.ArrowDown) {
     					terminal.moveCursor(x,y);
-    					terminal.putCharacter(' ');
+    					terminal.putCharacter('A');
     					y++;
     				}
     				//space moves it diagonally
     				if (key.getCharacter() == ' ') {
     					terminal.moveCursor(x,y);
-    					terminal.putCharacter(' ');
+    					terminal.putCharacter('K');
     					y++;
     					x++;
     				}
-    				putString(1,4,terminal,"["+key.getCharacter() +"]");
-    				putString(1,1,terminal,key+"        ");//to clear leftover letters pad withspaces
+    			//	putString(1,4,terminal,"["+key.getCharacter() +"]");
+    				putString(1,2,terminal,key+"        ");//to clear leftover letters pad withspaces
     			}
 
     			//DO EVEN WHEN NO KEY PRESSED:
@@ -198,6 +198,7 @@ public class Driver{
     				lastSecond = millis / 1000;
     				//one second has passed.
     				putString(1,3,terminal,"TIMER: "+lastSecond + " seconds");
+            putString(1,4,terminal,"Cursor Coordinates: (" + x + ", " + y + ")");
 
     			}
 
