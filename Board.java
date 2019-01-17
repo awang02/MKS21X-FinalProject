@@ -57,7 +57,7 @@ public class Board{
     while (counter < minesOnBoard) {
       int coordX = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
       int coordY = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
-      System.out.println(coordX + "," + coordY);
+      //System.out.println(coordX + "," + coordY); //debugging in driver
       if(!cellGrid[coordX][coordY].isMine()){
         cellGrid[coordX][coordY].setMine(true);
         neighborMineNumsPlus(coordX, coordY); // this helper function assigns minenums to all adjacent cells of a mine

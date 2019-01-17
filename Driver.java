@@ -30,7 +30,7 @@ public class Driver{
 		}
 	}
   public static void main(String[] args) {
-    int x = 10;
+    int x = 10; //coordinates for where cursor starts
     int y = 10;
 
     Terminal terminal = TerminalFacade.createTextTerminal();
@@ -41,6 +41,7 @@ public class Driver{
 
     boolean running = true;
 
+/*  USER INPUT SYSTEM BEING WORKED ON FOR LATERS
     //Board(int rows, int cols, int mines, int seeder): constructor for reference
     //rows & cols & mines
     int defaultRow = 10;
@@ -89,11 +90,11 @@ public class Driver{
       System.out.println("You messed up somewhere hun. Check yo self" + '\n' + instruction);
     }
 
-
+*/
 
     Board tester = new Board();
     System.out.println(tester);
-    Board tester1 = new Board(15, 15, 10, 37253);
+    Board tester1 = new Board(15, 15, 15, 37253);
     System.out.println(tester1);
     Board tester2 = new Board(15, 15, 10, 67223);
     System.out.println(tester2);
@@ -121,14 +122,14 @@ public class Driver{
     			//terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE); //underlines the character in cursor
     			terminal.putCharacter('O');// character that shows up inside cursor
     			//terminal.putCharacter(' ');
-    			terminal.applyBackgroundColor(Terminal.Color.RED);
-    			terminal.applyForegroundColor(Terminal.Color.GREEN);
+    			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
+    			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
     			terminal.applySGR(Terminal.SGR.RESET_ALL);
 
 
     			terminal.moveCursor(size.getColumns()-5,5);
-    	//		terminal.applyBackgroundColor(Terminal.Color.BLUE);
-    	//		terminal.applyForegroundColor(Terminal.Color.WHITE);
+    	//	terminal.applyBackgroundColor(Terminal.Color.BLUE);
+    	//	terminal.applyForegroundColor(Terminal.Color.WHITE);
     			terminal.applySGR(Terminal.SGR.ENTER_BOLD);
     			terminal.putCharacter('A');
     			terminal.putCharacter('B');
@@ -192,11 +193,11 @@ public class Driver{
     			//DO EVEN WHEN NO KEY PRESSED:
     			long tEnd = System.currentTimeMillis();
     			long millis = tEnd - tStart;
-    			putString(1,2,terminal,"Milliseconds since start of program: "+millis);
+    			//putString(1,2,terminal,"Milliseconds since start of program: "+millis); //gives time in milliseconds (too fast)
     			if(millis/1000 > lastSecond){
     				lastSecond = millis / 1000;
     				//one second has passed.
-    				putString(1,3,terminal,"Seconds since start of program: "+lastSecond);
+    				putString(1,3,terminal,"TIMER: "+lastSecond + " seconds");
 
     			}
 
