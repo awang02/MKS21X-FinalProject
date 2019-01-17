@@ -28,3 +28,6 @@ I was able to move my files around so that lanterna could actually interact with
 
 1/15/18
 I created a new class TerminalBoard to do all the lanterna stuff but quickly realized I made the Driver class do a bunch of main(String[] args) stuff that I need. So I combined everything useful from TerminalBoard into the Driver. But before I did that, I tested a bunch of new cases (edge/exception/etc) using terminal inputs, everything seems pretty a-okay.
+
+1/16/18
+I got Lanterna to interact with my board and code! I fixed up the mine class toString and constructor because it was printing weirdly with lantern. The timer and cursor coordinates also show up on the terminal when it runs.
