@@ -62,10 +62,12 @@ public class TerminalDemo {
 			terminal.putCharacter('\u262d');
 			terminal.putCharacter(' ');
 			terminal.moveCursor(size.getColumns()-5,6);
-			terminal.putCharacter(' ');
-			terminal.putCharacter(' ');
-			terminal.putCharacter(' ');
-			terminal.putCharacter(' ');
+			terminal.applyBackgroundColor(Terminal.Color.RED);
+			terminal.applyForegroundColor(Terminal.Color.YELLOW);
+			terminal.putCharacter('\u262a');
+			terminal.putCharacter('\u262d');
+			terminal.putCharacter('\u262d');
+			terminal.putCharacter('\u262b');
 			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
 			terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
 
