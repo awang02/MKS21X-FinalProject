@@ -51,7 +51,7 @@ public class Driver{
     int seed = randooo.nextInt(1001);
 
     //CREATE BETTER INSTRUCTIONS L8ER
-    String instruction = "enter number of rows, number of columns and number of mines. optional: enter seed num";
+    String instruction = "Enter number of rows, number of columns and number of mines. optional: enter seed num";
 
     try{
 
@@ -115,14 +115,14 @@ public class Driver{
     		while(running){
 
     			terminal.moveCursor(x,y);
-    			terminal.applyBackgroundColor(Terminal.Color.WHITE);
+    			terminal.applyBackgroundColor(Terminal.Color.WHITE); //cursor color
     			terminal.applyForegroundColor(Terminal.Color.BLACK);
     			//applySGR(a,b) for multiple modifiers (bold,blink) etc.
-    			terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE);
-    			terminal.putCharacter('\u00a4');
+    			//terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE); //underlines the character in cursor
+    			terminal.putCharacter('O');// character that shows up inside cursor
     			//terminal.putCharacter(' ');
-    			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
-    			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
+    			terminal.applyBackgroundColor(Terminal.Color.RED);
+    			terminal.applyForegroundColor(Terminal.Color.GREEN);
     			terminal.applySGR(Terminal.SGR.RESET_ALL);
 
 
