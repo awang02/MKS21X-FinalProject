@@ -64,14 +64,30 @@ public class Driver{
 
 
 
-        terminal.moveCursor(size.getColumns()1,5);
+        terminal.moveCursor(size.getColumns()-100,10);
       	terminal.applyBackgroundColor(Terminal.Color.BLUE);
       //	terminal.applyForegroundColor(Terminal.Color.WHITE);
         terminal.applySGR(Terminal.SGR.ENTER_BOLD);
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
-      //		terminal.putCharacter('\u262d');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');//10
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');//20
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
@@ -111,31 +127,31 @@ public class Driver{
 
     		if (key.getKind() == Key.Kind.ArrowLeft) {
     			terminal.moveCursor(x,y);
-				//	terminal.putCharacter('G');
+					terminal.putCharacter('G');
     			x--;
     		}
 
     		if (key.getKind() == Key.Kind.ArrowRight) {
     			terminal.moveCursor(x,y);
-    		//	terminal.putCharacter('I');
+    			terminal.putCharacter(' ');
     			x++;
     		}
 
     		if (key.getKind() == Key.Kind.ArrowUp) {
     			terminal.moveCursor(x,y);
-    		//	terminal.putCharacter('N');
+    			terminal.putCharacter(' ');
     			y--;
   			}
 
     		if (key.getKind() == Key.Kind.ArrowDown) {
     			terminal.moveCursor(x,y);
-    		//	terminal.putCharacter('A');
+    			terminal.putCharacter(' ');
     			y++;
     		}
     		//space moves it diagonally
     		if (key.getCharacter() == ' ') {
   				terminal.moveCursor(x,y);
-    		//	terminal.putCharacter('K');
+    			terminal.putCharacter(' ');
     			y++;
     			x++;
     		}
