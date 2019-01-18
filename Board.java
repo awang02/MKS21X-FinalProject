@@ -10,7 +10,7 @@ import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 public class Board{
   //fields
-  private Cell[][] cellGrid;
+  public Cell[][] cellGrid;
   private int seed;
   private Random randgen;
 
@@ -65,6 +65,12 @@ public class Board{
       }
     }
   }
+
+/*  public void accessGrid(int r1, int c1, int CCC) {
+    if(CCC < 0){
+      return "";
+    }
+  }*/
 
   //helper funtion that makes assigns neighbor (adjacent) mineNums all go up
   public void neighborMineNumsPlus(int theXCoord, int theYCoord){
@@ -134,6 +140,7 @@ public class Board{
     }
     return print + "\nSeed: " + seed;
   }
+
 
   public String toStringBoard(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer

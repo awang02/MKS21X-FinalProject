@@ -22,7 +22,7 @@ import java.io.*; //file, filenotfoundexception
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Driver{
+public class Driver extends Board{
   public static void main(String[] args){
     //USER INPUT SYSTEM BEING WORKED ON FOR LATERS
       //Board(int rows, int cols, int mines, int seeder): constructor for reference
@@ -51,11 +51,19 @@ public class Driver{
           System.out.println(instruction);
         }
         else if (args.length == 3){
+
+
+
           defaultRow = Integer.parseInt(args[0]) + 2;
           defaultCol = Integer.parseInt(args[1]) + 2;
           defaultMines = Integer.parseInt(args[2]);
           Board B = new Board(defaultRow, defaultCol, defaultMines, seed);
-          System.out.println(B.toStringBoard());
+          String str = B.toStringBoard();
+          System.out.println(str);
+
+
+
+
 
           boolean lost = true;
           Scanner reader = new Scanner(System.in);  // Reading from System.in
@@ -66,13 +74,15 @@ public class Driver{
             //reader.close();
             System.out.println("Enter y-coordinate: ");
             int b = reader.nextInt(); // Scans the next token of the input as an int.
-
-
-
-
-
-            
+            System.out.println("Enter flag (-1) or uncover(1)? ");
+            int c = reader.nextInt();
+            if(c == -1){
+              setCovered(-1);
+            else if(c == 1){
+              System.out.println(str);
+            }
             lost = false;
+
           }
         }
         else if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
