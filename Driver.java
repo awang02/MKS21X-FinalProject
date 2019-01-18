@@ -56,6 +56,15 @@ public class Driver{
           defaultMines = Integer.parseInt(args[2]);
           Board B = new Board(defaultRow, defaultCol, defaultMines, seed);
           System.out.println(B.toStringBoard());
+
+          boolean lost = true;
+          Scanner reader = new Scanner(System.in);  // Reading from System.in
+          while(lost){
+            System.out.println("Enter a number: ");
+            int n = reader.nextInt(); // Scans the next token of the input as an int.
+            //once finished
+            reader.close();
+          }
         }
         else if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
           System.out.println("The seed (fourth argument) must be between 0 and 10000 inclusive" + '\n' + instruction);
@@ -90,6 +99,7 @@ public class Driver{
 
 
 
+
   //    Board tester = new Board();
   //    System.out.println(tester);
 //      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
@@ -107,6 +117,8 @@ public class Driver{
   //    System.out.println(tester6);
       //
   }
+
+
 
 
 }
