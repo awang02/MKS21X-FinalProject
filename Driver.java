@@ -60,10 +60,19 @@ public class Driver{
           boolean lost = true;
           Scanner reader = new Scanner(System.in);  // Reading from System.in
           while(lost){
-            System.out.println("Enter a number: ");
-            int n = reader.nextInt(); // Scans the next token of the input as an int.
+            System.out.println("Enter x-coordinate: ");
+            int a = reader.nextInt(); // Scans the next token of the input as an int.
             //once finished
-            reader.close();
+            //reader.close();
+            System.out.println("Enter y-coordinate: ");
+            int b = reader.nextInt(); // Scans the next token of the input as an int.
+
+
+
+
+
+            
+            lost = false;
           }
         }
         else if (args.length >= 4 && (Integer.parseInt(args[4]) < 0 || Integer.parseInt(args[4]) > 10000 )){
