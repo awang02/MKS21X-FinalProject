@@ -38,6 +38,16 @@ public class Cell{
     mine = pasta;
   }
 
+  public int getCovered(){
+    return coveredStatus;
+  }
+
+  public void setCovered(int meatball){
+    coveredStatus = meatball;
+  }
+
+
+
   //Called in Board once a mine is placed to manipulate the mine's neighbor number
   public void mineNumPlus(){
     mineNum ++;

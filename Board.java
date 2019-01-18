@@ -90,6 +90,10 @@ public class Board{
       }
     }
   }
+  public void enterAction(int x_, int y_, int pick){
+    //flag = -1 ; uncovered = 1
+    cellGrid[x_][y_].setCovered(pick);
+  }
 
   public String toString(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
@@ -97,7 +101,19 @@ public class Board{
     for (int t = 1; t < cellGrid.length - 1; t++){
       print += "|";
       for (int y = 1; y < cellGrid[t].length - 2; y++){
-        print += cellGrid[t][y] + " ";
+        //no show
+        if(cellGrid[t][y].getCovered() == 0){
+          print += cellGrid[t][y] + " ";
+        }
+        //flagged
+        else if(cellGrid[t][y].getCovered() == -1){
+          print += cellGrid[t][y] + "*";
+        }
+        //uncovered
+        else{
+          print += cellGrid[t][y] + " ";
+
+        }
       }
       print += cellGrid[t][cellGrid[t].length - 2];
       print += "|\n";
@@ -124,18 +140,37 @@ public class Board{
     String print = "   ";
     for (int t = 1; t < cellGrid[0].length - 1; t++){
       print += t % 10 + " ";
-
     }
     print += '\n';
     for (int t = 1; t < cellGrid.length - 1; t++){
-      if(t < 10){
-        print += " " + t + "| ";
+      if(cellGrid[t][1].getCovered() == 0 && t < 10){
+        print += " " + t + "|" + " ";
+      }
+      else if(cellGrid[t][1].getCovered() == 0){
+        print += t + "|" + " ";
+      }
+      else if(cellGrid[t][1].getCovered() < 0 && t < 10){
+        print += " " + t + "|" + "#";
+      }
+      else if(cellGrid[t][1].getCovered() < 0){
+        print +=  t + "|" + "#";
+      }
+      else if(t < 10){
+        print += " " + t + "|" + cellGrid[t][1];
       }
       else{
-        print += t + "| ";
+        print += t + "|" + cellGrid[t][1];
       }
       for (int y = 1; y < cellGrid[t].length - 2; y++){
-        print += "|" + " ";
+        if(cellGrid[t][y].getCovered() == 0){
+          print +=  "|" + " ";
+        }
+        else if(cellGrid[t][y].getCovered() < 0){
+          print +=  t + "|" + "#";
+        }
+        else{
+          print += "|" + cellGrid[t][y];
+        }
       }
       print += "|\n";
     }
