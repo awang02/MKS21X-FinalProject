@@ -31,6 +31,13 @@ public class Driver{
 		}
 	}
 
+  public static void getTheString(int r, int c,Terminal t, String s){
+    t.moveCursor(r,c);
+    for(int i = 0; i < s.length();i++){
+      t.putCharacter(s.charAt(i));
+    }
+  }
+
   public static void main(String[] args) {
     int x = 0; //coordinates for where cursor starts
     int y = 0;
@@ -65,39 +72,18 @@ public class Driver{
 
 
         terminal.moveCursor(size.getColumns()-100,10);
-      	terminal.applyBackgroundColor(Terminal.Color.BLUE);
+      	terminal.applyBackgroundColor(Terminal.Color.BLACK);
       //	terminal.applyForegroundColor(Terminal.Color.WHITE);
         terminal.applySGR(Terminal.SGR.ENTER_BOLD);
+
         terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');//10
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');//20
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.putCharacter(' ');
-        terminal.moveCursor(size.getColumns()-5,6);
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
         terminal.putCharacter(' ');
       	terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
   		  terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
+
 
 
 
@@ -127,7 +113,7 @@ public class Driver{
 
     		if (key.getKind() == Key.Kind.ArrowLeft) {
     			terminal.moveCursor(x,y);
-					terminal.putCharacter('G');
+					terminal.putCharacter(' ');
     			x--;
     		}
 
