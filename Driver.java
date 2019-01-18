@@ -32,8 +32,8 @@ public class Driver{
 	}
 
   public static void main(String[] args) {
-    int x = 10; //coordinates for where cursor starts
-    int y = 10;
+    int x = 0; //coordinates for where cursor starts
+    int y = 0;
 
     Terminal terminal = TerminalFacade.createTextTerminal();
     terminal.enterPrivateMode();
@@ -56,28 +56,33 @@ public class Driver{
     	terminal.moveCursor(x,y);
     	terminal.applyBackgroundColor(Terminal.Color.WHITE); //cursor color
     	terminal.applyForegroundColor(Terminal.Color.BLACK);
-    	terminal.putCharacter('O');// character that shows up inside cursor
+    	terminal.putCharacter(' ');// character that shows up inside cursor
     	//terminal.putCharacter(' ');
     	terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
   		terminal.applyForegroundColor(Terminal.Color.DEFAULT);
   		terminal.applySGR(Terminal.SGR.RESET_ALL);
 
 
-    	terminal.moveCursor(size.getColumns()-5,5);
-    //terminal.applyBackgroundColor(Terminal.Color.BLUE);
-    //terminal.applyForegroundColor(Terminal.Color.WHITE);
-    	terminal.applySGR(Terminal.SGR.ENTER_BOLD);
-    	terminal.putCharacter('A');
-    	terminal.putCharacter('B');
-  	//terminal.putCharacter('\u262d');
-    	terminal.putCharacter('C');
-    	terminal.moveCursor(size.getColumns()-5,6);
-    	terminal.putCharacter('D');
-    	terminal.putCharacter('E');
-    	terminal.putCharacter('F');
-    	terminal.putCharacter('G');
-    //terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
-    //terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
+
+        terminal.moveCursor(size.getColumns()1,5);
+      	terminal.applyBackgroundColor(Terminal.Color.BLUE);
+      //	terminal.applyForegroundColor(Terminal.Color.WHITE);
+        terminal.applySGR(Terminal.SGR.ENTER_BOLD);
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+      //		terminal.putCharacter('\u262d');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.moveCursor(size.getColumns()-5,6);
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+        terminal.putCharacter(' ');
+      	terminal.applyBackgroundColor(Terminal.Color.DEFAULT);// highlight
+  		  terminal.applyForegroundColor(Terminal.Color.DEFAULT);//words
+
 
 
 //LANTERNA STUFFS
@@ -88,14 +93,16 @@ public class Driver{
         //DEALING WITH COVERED SYMBOLS
         //this one is for flagging a cell (press Tab)
         if (key.getKind() == Key.Kind.Tab) {
+          terminal.moveCursor(x,y);
     			terminal.putCharacter('ø');
+          x++;
     		}
         //this one is for uncovering a cell (press Enter)
         if (key.getKind() == Key.Kind.Enter) {
-    			terminal.putCharacter('8');
+          terminal.moveCursor(x,y);
+          terminal.putCharacter('8');
+    			x++;
     		}
-
-
 
     		if (key.getKind() == Key.Kind.Escape) {
     			terminal.exitPrivateMode();
