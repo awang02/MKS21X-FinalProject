@@ -31,3 +31,8 @@ I created a new class TerminalBoard to do all the lanterna stuff but quickly rea
 
 1/16/18
 I got Lanterna to interact with my board and code! I fixed up the mine class toString and constructor because it was printing weirdly with lantern. The timer and cursor coordinates also show up on the terminal when it runs.
+
+1/17/18
+I made major movements in the Driver where I backtracked to printing actions and using keys to prompt the user for coordinates. I've decided I'm going to go through with lanterna and the cursor method of interacting with the game though. I've found some faults with my toString, since Strings are not immutable, using the printing would be very clumsy and ugly code. I made a new toStringBoard method which covers all the cells (hides mines and numbers).
+
+1/16/18
