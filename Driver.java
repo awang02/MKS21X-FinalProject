@@ -1,4 +1,4 @@
-//******* COMPILE AND RUN VIA LINES BELOW YO
+/* //******* COMPILE AND RUN VIA LINES BELOW YO
 //javac -cp lanterna.jar:. Driver.java
 //java -cp lanterna.jar:. Driver
 
@@ -16,7 +16,7 @@ import com.googlecode.lanterna.input.InputDecoder;
 import com.googlecode.lanterna.input.InputProvider;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.input.KeyMappingProfile;
-
+*/
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 import java.awt.event.KeyAdapter;
@@ -70,15 +70,16 @@ public class Driver{
         }
       }
       catch(Exception e){
-        System.out.println("You messed up somewhere hun. Check yo self" + '\n' + instruction);
+        System.out.println(" ");//"You messed up somewhere hun. Check yo self" + '\n' + instruction);
       }
 
 
 
   //    Board tester = new Board();
   //    System.out.println(tester);
-      Board tester1 = new Board(15, 15, 15, 37253);
-      System.out.println(tester1.toStringBoard);
+      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
+      System.out.println(tester1.toStringBoard());
+      System.out.println(tester1);
   //    Board tester2 = new Board(15, 15, 10, 67223);
   //    System.out.println(tester2);
   //    Board tester3 = new Board(15, 15, 10, 223);
@@ -91,19 +92,7 @@ public class Driver{
   //    System.out.println(tester6);
       //
   }
-  public String toStringBoard(){
-    // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
-    String print = "|";
-    for (int t = 1; t < cellGrid.length - 1; t++){
-      print += "|";
-      for (int y = 1; y < cellGrid[t].length - 2; y++){
-        print += "|" + " " + " ";
-      }
-      print += cellGrid[t][cellGrid[t].length - 2];
-      print += "|\n";
-    }
-    return print + "\nSeed: " + seed;
-  }
+
 
 }
 

@@ -132,7 +132,7 @@ public class TerminalDemo {
 	}
 }
 
-/* DAFTTTT DRAFFFTTTT
+/* DAFTTTT DRAFFFTTTTS
 public class Driver{
   public static void putString(int r, int c,Terminal t, String s){
 		t.moveCursor(r,c);
