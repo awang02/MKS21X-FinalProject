@@ -131,6 +131,16 @@ public class Board{
     return print + "\nSeed: " + seed +"\n";
   }
 
+  public boolean youWin(){
+    for (int t = 1; t < cellGrid.length - 1; t++){
+      for (int y = 1; y < cellGrid[t].length - 2; y++){
+        if(cellGrid[t][y].getCovered() == countMines){
+          return true;
+        }
+      }
+    }
+  }
+
   public String toStringDebug(){
     //this one prints the entire cellGrid, including the edge buffers
     String print = "";
