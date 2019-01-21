@@ -77,7 +77,8 @@ public class Driver extends Board{
             System.out.println("Enter flag (-1) or uncover(1)? ");
             int c = reader.nextInt();
             if(c == -1){
-              setCovered(-1);
+              System.out.println("filler");//setCovered(-1);
+            }
             else if(c == 1){
               System.out.println(str);
             }
@@ -121,9 +122,9 @@ public class Driver extends Board{
 
   //    Board tester = new Board();
   //    System.out.println(tester);
-//      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
-//      System.out.println(tester1.toStringBoard());
-//      System.out.println(tester1);
+      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
+      System.out.println(tester1.toStringBoard());
+      System.out.println(tester1);
   //    Board tester2 = new Board(15, 15, 10, 67223);
   //    System.out.println(tester2);
   //    Board tester3 = new Board(15, 15, 10, 223);

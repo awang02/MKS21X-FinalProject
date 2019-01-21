@@ -37,4 +37,4 @@ I made major movements in the Driver where I backtracked to printing actions and
 
 
 1/18/18
- I made a new toStringBoard method which covers all the cells (hides mines and numbers). Now I'm in the process of connecting lanterna to this code. I also made improvements in the initialization of the board. Inputting dimensions and number of mines works reliabley now. 
+ I made a new toStringBoard method which covers all the cells (hides mines and numbers). Now I'm in the process of connecting lanterna to this code. I also made improvements in the initialization of the board. Inputting dimensions and number of mines works reliably now. 

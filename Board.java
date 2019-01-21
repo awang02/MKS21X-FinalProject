@@ -13,6 +13,7 @@ public class Board{
   public Cell[][] cellGrid;
   private int seed;
   private Random randgen;
+  public int countMines;
 
 
   //constructors
@@ -20,6 +21,7 @@ public class Board{
   public Board(){
     //no mine, no num grid
     cellGrid = new Cell[12][12]; //buffer cells on edges
+    countMines = 10;
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
         cellGrid[r][c] = new Cell(false, 0, 0, r, c);
@@ -64,6 +66,7 @@ public class Board{
         counter ++;
       }
     }
+    countMines = minesOnBoard;
   }
 
 /*  public void accessGrid(int r1, int c1, int CCC) {
@@ -96,6 +99,7 @@ public class Board{
       }
     }
   }
+
   public void enterAction(int x_, int y_, int pick){
     //flag = -1 ; uncovered = 1
     cellGrid[x_][y_].setCovered(pick);
