@@ -131,6 +131,14 @@ public class Board{
     return print + "\nSeed: " + seed +"\n";
   }
 
+
+  //youLose must be run (False) before youWin can apply
+  public boolean youLose(int xCoordinate, int yCoordinate){
+    if (cellGrid[xCoordinate + 1][yCoordinate + 1].hasMine()){
+      return true;
+    }
+  }
+
   public boolean youWin(){
     for (int t = 1; t < cellGrid.length - 1; t++){
       for (int y = 1; y < cellGrid[t].length - 2; y++){
