@@ -134,8 +134,11 @@ public class Board{
 
   //youLose must be run (False) before youWin can apply
   public boolean youLose(int xCoordinate, int yCoordinate){
-    if (cellGrid[xCoordinate + 1][yCoordinate + 1].hasMine()){
+    if (cellGrid[xCoordinate + 1][yCoordinate + 1].isMine()){
       return true;
+    }
+    else{
+      return false;
     }
   }
 
@@ -147,6 +150,7 @@ public class Board{
         }
       }
     }
+    return false;
   }
 
   public String toStringDebug(){
