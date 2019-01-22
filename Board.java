@@ -30,7 +30,7 @@ public class Board{
         cellGrid[r][c] = new Cell(false, 0, 0, r, c);
       }
     }
-    //clear();
+  //clear();
   //HOW TO RANDOMIZE SEED IN DEFAULT BOARD
   //  Random randoSeed = new Random(748);
   //  seed = Math.abs(randoSeed.nextInt())/10000;
@@ -42,7 +42,7 @@ public class Board{
   public Board(int rows_, int cols_, int mines, int seeder){
     rows = rows_;
     cols = cols_;
-    cellGrid = new Cell[rows + 1][cols + 1]; //buffer cells on edges
+    cellGrid = new Cell[rows + 2][cols + 2]; //buffer cells on edges
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
         cellGrid[r][c] = new Cell(false, 0, 0, r, c);
@@ -64,6 +64,8 @@ public class Board{
     while (counter < minesOnBoard) {
       int coordX = Math.abs(randgen.nextInt(rows)) + 1; //+1 to compensate buffer which shouldn't have mines
       int coordY = Math.abs(randgen.nextInt(cols)) + 1; //+1 to compensate buffer which shouldn't have mines
+      System.out.println(coordX + " " +coordY);
+
       //System.out.println(coordX + "," + coordY); //debugging in driver
       if(!cellGrid[coordX][coordY].isMine()){
         cellGrid[coordX][coordY].setMine(true);
@@ -108,6 +110,10 @@ public class Board{
   public void enterAction(int x_, int y_, int pick){
     //flag = -1 ; uncovered = 1
     cellGrid[x_][y_].setCovered(pick);
+  }
+
+  public Cell getCell(int r_, int c_){
+    return cellGrid[r_ + 1][c_ + 1];
   }
 
   public String toString(){
@@ -214,7 +220,4 @@ public class Board{
     }
     return print + "\nSeed: " + seed;
   }
-
-
-
 }

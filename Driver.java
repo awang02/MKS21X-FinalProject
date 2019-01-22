@@ -32,10 +32,8 @@ public class Driver extends Board{
       int defaultMines = 10;
       //randSeed
       Random randooo = new Random();
-      int seed = randooo.nextInt(1001);
+      int seed = randooo.nextInt(1001); //random number up to 1001
 
-      //CREATE BETTER INSTRUCTIONS L8ER
-      String instruction = "Enter number of rows, number of columns, and number of mines. optional: enter seed num";
       boolean lost = false;
       int numFlagged = 0;
 
@@ -44,12 +42,23 @@ public class Driver extends Board{
       int a = reader.nextInt(); // Scans the next token of the input as an int.
       if(a == 1){
         System.out.println("Easy Mode (10x10 - 10 Mines)");
-        Board easyBoard = new Board();
+        Board easyBoard = new Board(10, 10, 10, seed);
         while(!lost){
           System.out.println(easyBoard.toStringBoard());
-          System.out.println(easyBoard);
-          lost = true;
+          //System.out.println(easyBoard.toStringDebug());
+          System.out.println("Uncover(1) or flag(2)? ");
+          int covering = reader.nextInt();
+          System.out.println("Enter x-coordinate (number): ");
+          int xCor = reader.nextInt();
+          System.out.println("Enter y-coordinate (letter): ");
+          int yCor = reader.nextInt();
 
+          if(covering = 1 && easyBoard.getCell(xCor, yCor).isMine()){
+            lost = true;
+            System.out.println("You lost.");
+          }
+          else if 
+          lost = true;
         }
 
 
