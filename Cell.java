@@ -47,8 +47,8 @@ public class Cell{
 
 
   //Mines STUFFS
-  public int getMineNum(){
-    return mineNum;
+  public boolean isMineNumZero(){
+    return mineNum == 0;
   }
 
 
