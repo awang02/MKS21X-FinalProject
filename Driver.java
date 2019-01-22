@@ -35,9 +35,30 @@ public class Driver extends Board{
       int seed = randooo.nextInt(1001);
 
       //CREATE BETTER INSTRUCTIONS L8ER
-      String instruction = "Enter number of rows, number of columns and number of mines. optional: enter seed num";
+      String instruction = "Enter number of rows, number of columns, and number of mines. optional: enter seed num";
 
-      try{
+      Scanner reader = new Scanner(System.in);  // Reading from System.in
+      System.out.println("Choose a level (enter the integer):" + '\n' + "   1. Easy" + '\n' + "   2. Medium" + '\n' + "   3. Hard" + '\n' + "   4. Custom");
+      int a = reader.nextInt(); // Scans the next token of the input as an int.
+      if(a == 1){
+        System.out.println("Easy Mode");
+      }
+      else if(a == 2){
+        System.out.println("Medium Mode");
+      }
+      else if(a == 3){
+        System.out.println("Hard Mode");
+      }
+      else if(a == 4){
+        System.out.println("Custom Mode");
+      }
+      else{
+        System.out.println("Invalid entry. Re-run the program and make sure you enter in an valid integer level 1, 2, 3, or 4");
+      }
+
+
+/*    //CUSTOM WORKDS BUT SCRATCHED
+        try{
       //if number of mines > number of cells existing, print error
         if((Integer.parseInt(args[0]) < 0) || (Integer.parseInt(args[1]) < 0)){
           System.out.println("The row and column must be positive" + '\n' + instruction);
@@ -52,18 +73,12 @@ public class Driver extends Board{
         }
         else if (args.length == 3){
 
-
-
           defaultRow = Integer.parseInt(args[0]) + 2; //+2 to compensate for buffer
           defaultCol = Integer.parseInt(args[1]) + 2; //+2 to compensate for buffer
           defaultMines = Integer.parseInt(args[2]);
           Board B = new Board(defaultRow, defaultCol, defaultMines, seed);
           String str = B.toStringBoard();
           System.out.println(str);
-
-
-
-
 
           boolean lost = true;
           Scanner reader = new Scanner(System.in);  // Reading from System.in
@@ -116,7 +131,7 @@ public class Driver extends Board{
       catch(Exception e){
         System.out.println(" ");//"You messed up somewhere hun. Check yo self" + '\n' + instruction);
       }
-
+*/
 
 
 
