@@ -14,13 +14,16 @@ public class Board{
   private int seed;
   private Random randgen;
   public int countMines;
+  private int rows = 12;
+  private int cols = 12;
+
 
 
   //constructors
   //this is the default grid which instatiates a 10 by 10 grid and plants 10 random mines
   public Board(){
     //no mine, no num grid
-    cellGrid = new Cell[12][12]; //buffer cells on edges
+    cellGrid = new Cell[rows][cols]; //buffer cells on edges
     countMines = 10;
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
@@ -36,8 +39,10 @@ public class Board{
     placeMines(10); //this plants 10 random mines
   }
 
-  public Board(int rows, int cols, int mines, int seeder){
-    cellGrid = new Cell[rows][cols]; //buffer cells on edges
+  public Board(int rows_, int cols_, int mines, int seeder){
+    rows = rows_;
+    cols = cols_;
+    cellGrid = new Cell[rows + 1][cols + 1]; //buffer cells on edges
     for(int r = 0; r < cellGrid.length; r++){
       for(int c = 0; c < cellGrid[0].length; c++){
         cellGrid[r][c] = new Cell(false, 0, 0, r, c);
@@ -57,8 +62,8 @@ public class Board{
   public void placeMines(int minesOnBoard) {
     int counter = 0;
     while (counter < minesOnBoard) {
-      int coordX = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
-      int coordY = Math.abs(randgen.nextInt(10)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordX = Math.abs(randgen.nextInt(rows)) + 1; //+1 to compensate buffer which shouldn't have mines
+      int coordY = Math.abs(randgen.nextInt(cols)) + 1; //+1 to compensate buffer which shouldn't have mines
       //System.out.println(coordX + "," + coordY); //debugging in driver
       if(!cellGrid[coordX][coordY].isMine()){
         cellGrid[coordX][coordY].setMine(true);
@@ -133,7 +138,7 @@ public class Board{
 
 
   //youLose must be run (False) before youWin can apply
-  public boolean youLose(int xCoordinate, int yCoordinate){
+  public boolean lost(int xCoordinate, int yCoordinate){
     if (cellGrid[xCoordinate + 1][yCoordinate + 1].isMine()){
       return true;
     }

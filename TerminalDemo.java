@@ -15,7 +15,6 @@ import com.googlecode.lanterna.input.KeyMappingProfile;
 
 
 
-
 // DAFTTTT DRAFFFTTTTS
 public class TerminalDemo{
   public static void putString(int r, int c,Terminal t, String s){

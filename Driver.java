@@ -36,21 +36,38 @@ public class Driver extends Board{
 
       //CREATE BETTER INSTRUCTIONS L8ER
       String instruction = "Enter number of rows, number of columns, and number of mines. optional: enter seed num";
+      boolean lost = false;
+      int numFlagged = 0;
 
       Scanner reader = new Scanner(System.in);  // Reading from System.in
       System.out.println("Choose a level (enter the integer):" + '\n' + "   1. Easy" + '\n' + "   2. Medium" + '\n' + "   3. Hard" + '\n' + "   4. Custom");
       int a = reader.nextInt(); // Scans the next token of the input as an int.
       if(a == 1){
-        System.out.println("Easy Mode");
+        System.out.println("Easy Mode (10x10 - 10 Mines)");
+        Board easyBoard = new Board();
+        while(!lost){
+          System.out.println(easyBoard.toStringBoard());
+          System.out.println(easyBoard);
+          lost = true;
+
+        }
+
+
       }
       else if(a == 2){
-        System.out.println("Medium Mode");
+        System.out.println("Medium Mode (16x16 - 40 Mines)");
+
+
       }
       else if(a == 3){
-        System.out.println("Hard Mode");
+        System.out.println("Hard Mode (16x30 - 99 Mines)");
+
+
       }
       else if(a == 4){
-        System.out.println("Custom Mode");
+        System.out.println("Custom Mode (max: 30x24 - 200 Mines)");
+
+
       }
       else{
         System.out.println("Invalid entry. Re-run the program and make sure you enter in an valid integer level 1, 2, 3, or 4");
