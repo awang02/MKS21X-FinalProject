@@ -43,25 +43,19 @@ public class Driver extends Board{
       if(a == 1){
         System.out.println("Easy Mode (10x10 - 10 Mines)");
         Board easyBoard = new Board(6, 6, 10, seed);
-        String theBoard = easyBoard.toStringBoard();
         while(!lost){
-          System.out.println(theBoard);
-          //System.out.println(easyBoard.toStringDebug());
+          System.out.println(easyBoard.toStringBoard());
+          System.out.println(easyBoard.toStringDebug());
+
           System.out.println("Uncover(1) or flag(2)? ");
           int covering = reader.nextInt();
-          System.out.println("Enter x-coordinate (number): ");
+          System.out.println("Enter row (number): ");
           int xCor = reader.nextInt();
-          System.out.println("Enter y-coordinate (letter): ");
+          System.out.println("Enter column (letter): ");
           int yCor = reader.nextInt();
 
-          if(covering == 1){
-            System.out.println(easyBoard.alteredStringBoard(theBoard, xCor, yCor));
-          }
-        //   && easyBoard.getCell(xCor, yCor).isMine()){
-      //      lost = true;
-        //    System.out.println("You lost.");
-          //}
-        //  else if{}
+          easyBoard.getCell(xCor, yCor).setCovered(covering);
+          System.out.println(easyBoard.toStringBoard());
           lost = true;
         }
 
