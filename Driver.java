@@ -27,8 +27,8 @@ public class Driver extends Board{
     //USER INPUT SYSTEM BEING WORKED ON FOR LATERS
       //Board(int rows, int cols, int mines, int seeder): constructor for reference
       //rows & cols & mines
-      int defaultRow = 10;
-      int defaultCol = 10;
+      int defaultRow = 10;//+2 to compensate for buffer
+      int defaultCol = 10;//+2 to compensate for buffer
       int defaultMines = 10;
       //randSeed
       Random randooo = new Random();
@@ -54,8 +54,8 @@ public class Driver extends Board{
 
 
 
-          defaultRow = Integer.parseInt(args[0]) + 2;
-          defaultCol = Integer.parseInt(args[1]) + 2;
+          defaultRow = Integer.parseInt(args[0]) + 2; //+2 to compensate for buffer
+          defaultCol = Integer.parseInt(args[1]) + 2; //+2 to compensate for buffer
           defaultMines = Integer.parseInt(args[2]);
           Board B = new Board(defaultRow, defaultCol, defaultMines, seed);
           String str = B.toStringBoard();
