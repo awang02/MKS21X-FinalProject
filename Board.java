@@ -64,7 +64,7 @@ public class Board{
     while (counter < minesOnBoard) {
       int coordX = Math.abs(randgen.nextInt(rows)) + 1; //+1 to compensate buffer which shouldn't have mines
       int coordY = Math.abs(randgen.nextInt(cols)) + 1; //+1 to compensate buffer which shouldn't have mines
-      System.out.println(coordX + " " +coordY);
+      //System.out.println(coordX + " " +coordY);
 
       //System.out.println(coordX + "," + coordY); //debugging in driver
       if(!cellGrid[coordX][coordY].isMine()){
@@ -193,10 +193,10 @@ public class Board{
         print += t + "|" + " ";
       }
       else if(cellGrid[t][1].getCovered() < 0 && t < 10){
-        print += " " + t + "|" + "#";
+        print += " " + t + "|" + "*";
       }
       else if(cellGrid[t][1].getCovered() < 0){
-        print +=  t + "|" + "#";
+        print +=  "s";//t + "|" + "*";
       }
       else if(t < 10){
         print += " " + t + "|" + cellGrid[t][1];
@@ -209,7 +209,7 @@ public class Board{
           print +=  "|" + " ";
         }
         else if(cellGrid[t][y].getCovered() < 0){
-          print +=  t + "|" + "#";
+          print +=  "|" + "*";
         }
         else{
           print += "|" + cellGrid[t][y];
@@ -220,10 +220,6 @@ public class Board{
     return print + "\nSeed: " + seed;
   }
 
-  public String alteredStringBoard(String grid, int xxx, int yyy){
-    String print = grid.substring(0, (xxx * 2 + xxx * 3) * yyy) + "!" + grid.substring((xxx * 2 + xxx * 3) * yyy);
-    return print;
-  }
 
 
 

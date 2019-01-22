@@ -42,21 +42,24 @@ public class Driver extends Board{
       int a = reader.nextInt(); // Scans the next token of the input as an int.
       if(a == 1){
         System.out.println("Easy Mode (10x10 - 10 Mines)");
-        Board easyBoard = new Board(6, 6, 10, seed);
+        Board easyBoard = new Board(10, 10, 10, seed);
         while(!lost){
           System.out.println(easyBoard.toStringBoard());
-          System.out.println(easyBoard.toStringDebug());
-
+          //System.out.println(easyBoard.toStringDebug());
           System.out.println("Uncover(1) or flag(2)? ");
           int covering = reader.nextInt();
           System.out.println("Enter row (number): ");
           int xCor = reader.nextInt();
           System.out.println("Enter column (letter): ");
           int yCor = reader.nextInt();
-
-          easyBoard.getCell(xCor, yCor).setCovered(covering);
-          System.out.println(easyBoard.toStringBoard());
-          lost = true;
+          if(covering == 2){
+            covering = -1;
+          }
+          easyBoard.getCell(xCor - 1, yCor - 2).setCovered(covering);
+          if(easyBoard.getCell(xCor - 1, yCor - 2).isMine()){
+            lost = true;
+            System.out.println(easyBoard.toStringDebug());
+          }
         }
 
 

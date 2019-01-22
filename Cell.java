@@ -33,19 +33,23 @@ public class Cell{
   public boolean isMine(){
     return mine;
   }
-
   public void setMine(boolean pasta){
     mine = pasta;
   }
 
+  //covered status
   public int getCovered(){
     return coveredStatus;
   }
-
   public void setCovered(int meatball){
     coveredStatus = meatball;
   }
 
+
+  //Mines STUFFS
+  public int getMineNum(){
+    return mineNum;
+  }
 
 
   //Called in Board once a mine is placed to manipulate the mine's neighbor number
