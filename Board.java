@@ -180,14 +180,14 @@ public class Board{
 
   public String toStringBoard(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer or numbers/Mines
-    String print = "   ";
+    String print = "   "; //+3 char
     for (int t = 1; t < cellGrid[0].length - 1; t++){
-      print += t % 10 + " ";
+      print += t % 10 + " "; //+row * 2
     }
-    print += '\n';
+    print += '\n'; //+1
     for (int t = 1; t < cellGrid.length - 1; t++){
       if(cellGrid[t][1].getCovered() == 0 && t < 10){
-        print += " " + t + "|" + " ";
+        print += " " + t + "|" + " "; // +row * 4
       }
       else if(cellGrid[t][1].getCovered() == 0){
         print += t + "|" + " ";
@@ -221,7 +221,7 @@ public class Board{
   }
 
   public String alteredStringBoard(String grid, int xxx, int yyy){
-    String print = grid.substring(0, (yyy * 2 + 4) * xxx) + "!" + grid.substring((yyy * 2 + 4) * xxx);
+    String print = grid.substring(0, (xxx * 2 + xxx * 3) * yyy) + "!" + grid.substring((xxx * 2 + xxx * 3) * yyy);
     return print;
   }
 
