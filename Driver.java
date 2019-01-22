@@ -42,9 +42,10 @@ public class Driver extends Board{
       int a = reader.nextInt(); // Scans the next token of the input as an int.
       if(a == 1){
         System.out.println("Easy Mode (10x10 - 10 Mines)");
-        Board easyBoard = new Board(10, 10, 10, seed);
+        Board easyBoard = new Board(6, 6, 10, seed);
+        String theBoard = easyBoard.toStringBoard();
         while(!lost){
-          System.out.println(easyBoard.toStringBoard());
+          System.out.println(theBoard);
           //System.out.println(easyBoard.toStringDebug());
           System.out.println("Uncover(1) or flag(2)? ");
           int covering = reader.nextInt();
@@ -53,11 +54,14 @@ public class Driver extends Board{
           System.out.println("Enter y-coordinate (letter): ");
           int yCor = reader.nextInt();
 
-          if(covering = 1 && easyBoard.getCell(xCor, yCor).isMine()){
-            lost = true;
-            System.out.println("You lost.");
+          if(covering == 1){
+            System.out.println(easyBoard.alteredStringBoard(theBoard, xCor, yCor));
           }
-          else if 
+        //   && easyBoard.getCell(xCor, yCor).isMine()){
+      //      lost = true;
+        //    System.out.println("You lost.");
+          //}
+        //  else if{}
           lost = true;
         }
 
@@ -163,9 +167,9 @@ public class Driver extends Board{
 
   //    Board tester = new Board();
   //    System.out.println(tester);
-      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
-      System.out.println(tester1.toStringBoard());
-      System.out.println(tester1);
+//      Board tester1 = new Board(15 + 2, 15 + 2, 15, 37253);
+//      System.out.println(tester1.toStringBoard());
+//      System.out.println(tester1);
   //    Board tester2 = new Board(15, 15, 10, 67223);
   //    System.out.println(tester2);
   //    Board tester3 = new Board(15, 15, 10, 223);

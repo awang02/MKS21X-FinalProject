@@ -115,6 +115,26 @@ public class Board{
   public Cell getCell(int r_, int c_){
     return cellGrid[r_ + 1][c_ + 1];
   }
+  //youLose must be run (False) before youWin can apply
+  public boolean lost(int xCoordinate, int yCoordinate){
+    if (cellGrid[xCoordinate + 1][yCoordinate + 1].isMine()){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  public boolean youWin(){
+    for (int t = 1; t < cellGrid.length - 1; t++){
+      for (int y = 1; y < cellGrid[t].length - 2; y++){
+        if(cellGrid[t][y].getCovered() == countMines){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 
   public String toString(){
     // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
@@ -143,27 +163,6 @@ public class Board{
   }
 
 
-  //youLose must be run (False) before youWin can apply
-  public boolean lost(int xCoordinate, int yCoordinate){
-    if (cellGrid[xCoordinate + 1][yCoordinate + 1].isMine()){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-
-  public boolean youWin(){
-    for (int t = 1; t < cellGrid.length - 1; t++){
-      for (int y = 1; y < cellGrid[t].length - 2; y++){
-        if(cellGrid[t][y].getCovered() == countMines){
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
   public String toStringDebug(){
     //this one prints the entire cellGrid, including the edge buffers
     String print = "";
@@ -180,7 +179,7 @@ public class Board{
 
 
   public String toStringBoard(){
-    // the numbers in the for loops have been modefied to only show the main cells and none of the buffer
+    // the numbers in the for loops have been modefied to only show the main cells and none of the buffer or numbers/Mines
     String print = "   ";
     for (int t = 1; t < cellGrid[0].length - 1; t++){
       print += t % 10 + " ";
@@ -220,4 +219,12 @@ public class Board{
     }
     return print + "\nSeed: " + seed;
   }
+
+  public String alteredStringBoard(String grid, int xxx, int yyy){
+    String print = grid.substring(0, (yyy * 2 + 4) * xxx) + "!" + grid.substring((yyy * 2 + 4) * xxx);
+    return print;
+  }
+
+
+
 }
