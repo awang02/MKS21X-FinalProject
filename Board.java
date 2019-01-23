@@ -222,28 +222,29 @@ public class Board{
 
   public void uncoverZeros(int xx, int yy){
     if(cellGrid[xx][yy].isMineNumZero()){
+      cellGrid[xx][yy].setCovered(1);
       if(cellGrid[xx][yy + 1].isMineNumZero()){
         cellGrid[xx][yy + 1].setCovered(1);
       }
-      else if(cellGrid[xx][yy - 1].isMineNumZero()){
+      if(cellGrid[xx][yy - 1].isMineNumZero()){
         cellGrid[xx][yy - 1].setCovered(1);
       }
-      else if(cellGrid[xx + 1][yy].isMineNumZero()){
+      if(cellGrid[xx + 1][yy].isMineNumZero()){
         cellGrid[xx + 1][yy].setCovered(1);
       }
-      else if(cellGrid[xx - 1][yy].isMineNumZero()){
+      if(cellGrid[xx - 1][yy].isMineNumZero()){
         cellGrid[xx - 1][yy].setCovered(1);
       }
-      else if(cellGrid[xx + 1][yy + 1].isMineNumZero()){
+      if(cellGrid[xx + 1][yy + 1].isMineNumZero()){
         cellGrid[xx + 1][yy + 1].setCovered(1);
       }
-      else if(cellGrid[xx + 1][yy - 1].isMineNumZero()){
+      if(cellGrid[xx + 1][yy - 1].isMineNumZero()){
         cellGrid[xx + 1][yy - 1].setCovered(1);
       }
-      else if(cellGrid[xx - 1][yy + 1].isMineNumZero()){
+      if(cellGrid[xx - 1][yy + 1].isMineNumZero()){
         cellGrid[xx - 1][yy + 1].setCovered(1);
       }
-      else if(cellGrid[xx - 1][yy - 1].isMineNumZero()){
+      if(cellGrid[xx - 1][yy - 1].isMineNumZero()){
         cellGrid[xx - 1][yy - 1].setCovered(1);
       }
     }

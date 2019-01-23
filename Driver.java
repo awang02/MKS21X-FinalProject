@@ -61,7 +61,7 @@ public class Driver extends Board{
           easyBoard.getCell(xCor - 1, yCor - 2).setCovered(covering);
           if(easyBoard.getCell(xCor - 1, yCor - 2).isMine()){
             lost = true;
-            System.out.println(easyBoard.toStringDebug());
+            System.out.println(easyBoard);
           }
         }
 
