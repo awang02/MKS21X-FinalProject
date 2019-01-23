@@ -179,77 +179,58 @@ public class Board{
 
 
   public String toStringBoard(){
-    // the numbers in the for loops have been modefied to only show the main cells and none of the buffer or numbers/Mines
-    String print = "   ";
+    // the numbers in the for loops have been modefied to only show the main cells
+    //and none of the buffer or numbers/Mines
+    String print = "";
     for (int t = 1; t < cellGrid[0].length - 1; t++){
-      print += t % 10 + " ";
-    }
-    print += '\n';
-    for (int t = 1; t < cellGrid.length - 1; t++){
-      if(cellGrid[t][1].getCovered() == 0 && t < 10){
-        print += " " + t + "|" + " ";
-      }
-      else if(cellGrid[t][1].getCovered() == 0){
-        print += t + "|" + " ";
-      }
-      else if(cellGrid[t][1].getCovered() < 0 && t < 10){
-        print += " " + t + "|" + "*";
-      }
-      else if(cellGrid[t][1].getCovered() < 0){
-        print +=  "s";//t + "|" + "*";
-      }
-      else if(t < 10){
-        print += " " + t + "|" + cellGrid[t][1];
-      }
-      else{
-        print += t + "|" + cellGrid[t][1];
-      }
-      for (int y = 1; y < cellGrid[t].length - 2; y++){
-        if(cellGrid[t][y].getCovered() == 0){
-          print +=  "|" + " ";
-        }
-        else if(cellGrid[t][y].getCovered() < 0){
-          print +=  "|" + "*";
-        }
-        else{
+      for (int y = 1; y < cellGrid[t].length - 1; y++){
+  //      if(cellGrid[t][y].getCovered() == 0){
+  //        print +=  "|" + "a";
+  //      }
+  //      else if(cellGrid[t][y].getCovered() < 0){
+  //        print +=  "|" + "*";
+  //      }
+  //      else{
           print += "|" + cellGrid[t][y];
-        }
+  //      }
       }
       print += "|\n";
     }
     return print + "\nSeed: " + seed;
   }
-  public void uncoverZeros(int x, int y) {
+
+
+  public void uncoverZeros(int x, int y, Board bebe) {
     if (x < 0 || x > rows || y < 0 || y > cols) {
       return;
     }
-    if (cellGrid[x][y].isMineNumZero){//() && cellGrid[x][y].getCovered() != 1) {
+    if (cellGrid[x][y].isMineNumZero()){  //() && cellGrid[x][y].getCovered() != 1) {
        cellGrid[x][y].setCovered(1);
 
 
        cellGrid[x+1][y].setCovered(1);
-       uncoverZeros(x+1, y);
+       bebe.uncoverZeros(x+1, y, bebe);
 
        cellGrid[x-1][y].setCovered(1);
-       uncoverZeros(x-1, y);
+       bebe.uncoverZeros(x-1, y, bebe);
 
        cellGrid[x][y+1].setCovered(1);
-       uncoverZeros(x, y+1);
+       bebe.uncoverZeros(x, y+1, bebe);
 
        cellGrid[x][y-1].setCovered(1);
-       uncoverZeros(x, y-1);
+       bebe.uncoverZeros(x, y-1, bebe);
 
        cellGrid[x+1][y+1].setCovered(1);
-       uncoverZeros(x+1, y+1);
+       bebe.uncoverZeros(x+1, y+1, bebe);
 
        cellGrid[x+1][y-1].setCovered(1);
-       uncoverZeros(x+1, y-1);
+       bebe.uncoverZeros(x+1, y-1, bebe);
 
        cellGrid[x-1][y+1].setCovered(1);
-       uncoverZeros(x-1, y+1);
+       bebe.uncoverZeros(x-1, y+1, bebe);
 
        cellGrid[x-1][y-1].setCovered(1);
-       uncoverZeros(x-1, y-1);
+       bebe.uncoverZeros(x-1, y-1, bebe);
 
 
     }
@@ -318,6 +299,50 @@ public class Board{
      if(cellGrid[x-1][y-1].setCovered(1)){
        uncoverZeros(x-1, y-1);
      }
+  }
+
+
+  public String toStringBoard(){
+    // the numbers in the for loops have been modefied to only show the main cells and none of the buffer or numbers/Mines
+    String print = "   ";
+    for (int t = 1; t < cellGrid[0].length - 1; t++){
+      print += t % 10 + " ";
+    }
+    print += '\n';
+    for (int t = 1; t < cellGrid.length - 1; t++){
+      if(cellGrid[t][1].getCovered() == 0 && t < 10){
+        print += "y" + t + "|" + "u";
+      }
+      else if(cellGrid[t][1].getCovered() == 0){
+        print += t + "|" + "r";
+      }
+      else if(cellGrid[t][1].getCovered() < 0 && t < 10){
+        print += "m" + t + "|" + "*";
+      }
+      else if(cellGrid[t][1].getCovered() < 0){
+        print +=  "s";//t + "|" + "*";
+      }
+      else if(t < 10){
+        print += "o" + t + "|" + cellGrid[t][1];
+      }
+      else{
+        print += t + "|" + cellGrid[t][1];
+      }
+
+      for (int y = 1; y < cellGrid[t].length - 2; y++){
+        if(cellGrid[t][y].getCovered() == 0){
+          print +=  "|" + "a";
+        }
+        else if(cellGrid[t][y].getCovered() < 0){
+          print +=  "|" + "*";
+        }
+        else{
+          print += "|" + cellGrid[t][y];
+        }
+      }
+      print += "|\n";
+    }
+    return print + "\nSeed: " + seed;
   }
   */
 
