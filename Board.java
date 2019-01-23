@@ -182,17 +182,17 @@ public class Board{
     // the numbers in the for loops have been modefied to only show the main cells
     //and none of the buffer or numbers/Mines
     String print = "";
-    for (int t = 1; t < cellGrid[0].length - 1; t++){
-      for (int y = 1; y < cellGrid[t].length - 1; y++){
-  //      if(cellGrid[t][y].getCovered() == 0){
-  //        print +=  "|" + "a";
-  //      }
-  //      else if(cellGrid[t][y].getCovered() < 0){
-  //        print +=  "|" + "*";
-  //      }
-  //      else{
+    for (int t = 1; t < cellGrid.length - 1; t++){
+      for (int y = 1; y < cellGrid[0].length - 1; y++){
+        if(cellGrid[t][y].getCovered() == 0){
+          print +=  "|" + " ";
+        }
+        else if(cellGrid[t][y].getCovered() < 0){
+          print +=  "|" + "*";
+        }
+        else{
           print += "|" + cellGrid[t][y];
-  //      }
+        }
       }
       print += "|\n";
     }

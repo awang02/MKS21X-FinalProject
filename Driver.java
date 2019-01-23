@@ -54,14 +54,14 @@ public class Driver extends Board{
           int yCor = reader.nextInt();
           if(covering == 1 && easyBoard.getCell(xCor, yCor).isMineNumZero()){
             easyBoard.uncoverZeros(xCor, yCor, easyBoard);
-            
+
 
           }
           if(covering == 2){
             covering = -1;
           }
-          easyBoard.getCell(xCor - 1, yCor - 2).setCovered(covering);
-          if(easyBoard.getCell(xCor - 1, yCor - 2).isMine()){
+          easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+          if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
             lost = true;
             System.out.println(easyBoard);
           }
