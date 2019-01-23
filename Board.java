@@ -31,10 +31,10 @@ public class Board{
       }
     }
   //clear();
-  //HOW TO RANDOMIZE SEED IN DEFAULT BOARD
+  //HOW TO RANDOMIZE SEED IN DEFAULT BOARD: you don't, default board will always be the same
   //  Random randoSeed = new Random(748);
   //  seed = Math.abs(randoSeed.nextInt())/10000;
-    seed = 473; //static seed for now
+    seed = 473; //static seed
     randgen = new Random(seed); //seed of randSeed is stored.
     placeMines(10); //this plants 10 random mines
   }
@@ -220,20 +220,38 @@ public class Board{
     return print + "\nSeed: " + seed;
   }
   public void uncoverZeros(int x, int y) {
-    if (x < 0 || x > rows - 1 || y < 0 || y > cols - 1) {
-      return; // check for bound
+    if (x < 0 || x > rows || y < 0 || y > cols) {
+      return;
     }
-    if (cellGrid[x][y].isMineNumZero() && cellGrid[x][y].getCovered() != 1) {
+    if (cellGrid[x][y].isMineNumZero){//() && cellGrid[x][y].getCovered() != 1) {
        cellGrid[x][y].setCovered(1);
+
+
        cellGrid[x+1][y].setCovered(1);
+       uncoverZeros(x+1, y);
+
        cellGrid[x-1][y].setCovered(1);
-       cellGrid[x][y-1].setCovered(1);
+       uncoverZeros(x-1, y);
+
        cellGrid[x][y+1].setCovered(1);
+       uncoverZeros(x, y+1);
+
+       cellGrid[x][y-1].setCovered(1);
+       uncoverZeros(x, y-1);
 
        cellGrid[x+1][y+1].setCovered(1);
-       cellGrid[x-1][y+1].setCovered(1);
+       uncoverZeros(x+1, y+1);
+
        cellGrid[x+1][y-1].setCovered(1);
+       uncoverZeros(x+1, y-1);
+
+       cellGrid[x-1][y+1].setCovered(1);
+       uncoverZeros(x-1, y+1);
+
        cellGrid[x-1][y-1].setCovered(1);
+       uncoverZeros(x-1, y-1);
+
+
     }
     else {
        return;
@@ -268,7 +286,40 @@ public class Board{
         cellGrid[xx - 1][yy - 1].setCovered(1);
       }
     }
-  }*/
+  }
+
+
+
+  if (cellGrid[x][y].isMineNumZero() && cellGrid[x][y].getCovered() != 1) {
+     cellGrid[x][y].setCovered(1);
+
+     if(cellGrid[x+1][y].setCovered(1)){
+       uncoverZeros(x+1, y);
+     }
+     if(cellGrid[x-1][y].setCovered(1)){
+       uncoverZeros(x-1, y);
+     }
+     if(cellGrid[x][y+1].setCovered(1)){
+       uncoverZeros(x, y+1);
+     }
+     if(cellGrid[x][y-1].setCovered(1)){
+       uncoverZeros(x, y-1);
+     }
+
+     if(cellGrid[x+1][y+1].setCovered(1)){
+       uncoverZeros(x+1, y+1);
+     }
+     if(cellGrid[x+1][y-1].setCovered(1)){
+       uncoverZeros(x+1, y-1);
+     }
+     if(cellGrid[x-1][y+1].setCovered(1)){
+       uncoverZeros(x-1, y+1);
+     }
+     if(cellGrid[x-1][y-1].setCovered(1)){
+       uncoverZeros(x-1, y-1);
+     }
+  }
+  */
 
 
 

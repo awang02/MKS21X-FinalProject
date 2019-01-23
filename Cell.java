@@ -41,8 +41,9 @@ public class Cell{
   public int getCovered(){
     return coveredStatus;
   }
-  public void setCovered(int meatball){
+  public boolean setCovered(int meatball){
     coveredStatus = meatball;
+    return true;
   }
 
 
