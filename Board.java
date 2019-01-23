@@ -219,8 +219,28 @@ public class Board{
     }
     return print + "\nSeed: " + seed;
   }
+  public void uncoverZeros(int x, int y) {
+    if (x < 0 || x > rows - 1 || y < 0 || y > cols - 1) {
+      return; // check for bound
+    }
+    if (cellGrid[x][y].isMineNumZero() && cellGrid[x][y].getCovered() != 1) {
+       cellGrid[x][y].setCovered(1);
+       cellGrid[x+1][y].setCovered(1);
+       cellGrid[x-1][y].setCovered(1);
+       cellGrid[x][y-1].setCovered(1);
+       cellGrid[x][y+1].setCovered(1);
 
-  public void uncoverZeros(int xx, int yy){
+       cellGrid[x+1][y+1].setCovered(1);
+       cellGrid[x-1][y+1].setCovered(1);
+       cellGrid[x+1][y-1].setCovered(1);
+       cellGrid[x-1][y-1].setCovered(1);
+    }
+    else {
+       return;
+    }
+  }
+
+/*  public void uncoverZeros(int xx, int yy){
     if(cellGrid[xx][yy].isMineNumZero()){
       cellGrid[xx][yy].setCovered(1);
       if(cellGrid[xx][yy + 1].isMineNumZero()){
@@ -248,7 +268,7 @@ public class Board{
         cellGrid[xx - 1][yy - 1].setCovered(1);
       }
     }
-  }
+  }*/
 
 
 
