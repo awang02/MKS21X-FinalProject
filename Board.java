@@ -216,7 +216,7 @@ public class Board{
     if (xx < 0 || xx > rows || yy < 0 || yy > cols){
       return;
     }
-    if(!cellGrid[xx][yy].isMineNumZero() || cellGrid[xx][yy].getCovered() == 1){ //Mine is not zero or you've already been here
+    if(!cellGrid[xx][yy].isMineNumZero() || cellGrid[xx][yy].getCovered() == 1 || cellGrid[xx][yy].getCovered() == -1){ //Mine is not zero or you've already been here (flagged/uncovered)
       return;
     }
   //  if(cellGrid[xx][yy].isMineNumZero() && cellGrid[xx][yy].getCovered() != 0){ //Mine is not zero or you've already been here

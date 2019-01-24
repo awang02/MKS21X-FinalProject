@@ -52,8 +52,9 @@ public class Driver extends Board{
           int xCor = reader.nextInt();
           System.out.println("Enter column (letter): ");
           int yCor = reader.nextInt();
-
-          easyBoard.uncoverZeros(xCor, yCor);
+          if(covering == 1){
+            easyBoard.uncoverZeros(xCor, yCor);
+          }
 
 
 
