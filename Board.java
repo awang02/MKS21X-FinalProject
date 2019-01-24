@@ -56,6 +56,15 @@ public class Board{
     randgen = new Random(seed); //seed of randSeed is stored.
     //this plants 10 random mines
     placeMines(mines);
+    //this is so that edge buffer mines don't mess with the uncoveringZero method
+    for(int q = 0; q < cellGrid.length; q++){
+      for(int t = 0; t < cellGrid[0].length; t++){
+        cellGrid[0][t].mineNumPlus();
+        cellGrid[rows][t].mineNumPlus();
+        cellGrid[q][0].mineNumPlus();
+        cellGrid[q][cols].mineNumPlus();
+      }
+    }
   }
 
   // helper function that places mines on the board
