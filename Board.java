@@ -193,7 +193,10 @@ public class Board{
     String print = "";
     for (int t = 1; t < cellGrid.length - 1; t++){
       for (int y = 1; y < cellGrid[0].length - 1; y++){
-        if(cellGrid[t][y].getCovered() == 0){
+        if(cellGrid[t][y].getCovered() == 1 && cellGrid[t][y].isMineNumZero()){
+          print +=  "|" + cellGrid[t][y];
+        }
+        else if(cellGrid[t][y].getCovered() == 0){
           print +=  "|" + " ";
         }
         else if(cellGrid[t][y].getCovered() < 0){

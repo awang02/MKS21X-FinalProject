@@ -14,6 +14,279 @@ import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.input.KeyMappingProfile;
 
 
+import java.util.*; //random, scanner, arraylist
+import java.io.*; //file, filenotfoundexception
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class TerminalDemo extends Board{
+
+  public static void putString(int r, int c,Terminal t, String s){
+		t.moveCursor(r,c);
+		for(int i = 0; i < s.length();i++){
+			t.putCharacter(s.charAt(i));
+		}
+	}
+
+  public static void main(String[] args){
+    //USER INPUT SYSTEM BEING WORKED ON FOR LATERS
+      //Board(int rows, int cols, int mines, int seeder): constructor for reference
+
+      //randSeed
+      Random randooo = new Random();
+      int seed = randooo.nextInt(1001); //random number up to 1001
+
+      boolean lost = false;
+      int numFlagged = 0;
+
+      Scanner reader = new Scanner(System.in);  // Reading from System.in
+      System.out.println("Choose a level (enter the integer):" + '\n' + "   1. Easy" + '\n' + "   2. Medium" + '\n' + "   3. Hard" + '\n' + "   4. Custom");
+      int a = reader.nextInt(); // Scans the next token of the input as an int.
+
+
+      if(a == 1){
+        try{
+          System.out.println("Easy Mode (10x10 - 10 Mines)");
+          Board easyBoard = new Board(10, 10, 10, seed);
+          while(!lost){
+            System.out.println(easyBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              easyBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(easyBoard);
+            }
+          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
+        }
+      }
+
+      else if(a == 2){
+        try{
+          System.out.println("Medium Mode (16x16 - 40 Mines)");
+          Board mediumBoard = new Board(16, 16, 40, seed);
+          while(!lost){
+            System.out.println(mediumBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              mediumBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            mediumBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(mediumBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(mediumBoard);
+            }
+          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
+        }
+
+      }
+      else if(a == 3){
+        try{
+          System.out.println("Hard Mode (16x30 - 99 Mines)");
+          Board hardBoard = new Board(16, 30, 99, seed);
+          while(!lost){
+            System.out.println(hardBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              hardBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            hardBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(hardBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(hardBoard);
+            }
+          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
+        }
+      }
+
+
+      else if(a == 4){
+        try{
+
+          System.out.println("Custom Mode (max: 30x24 - 200 Mines)");
+          System.out.println("Number of rows? (up to 30)");
+          int row = reader.nextInt();
+          System.out.println("Number of columns? (up to 24)");
+          int col = reader.nextInt();
+          if((row < 0) || (col < 0)){
+            System.out.println("The row and column must be positive");
+            System.exit(1);
+          }
+          System.out.println("Number of mines?");
+          int bomb = reader.nextInt();
+          if (row * col < bomb){
+            System.out.println("The number of mines exceeds the number of cells");
+            System.exit(1);
+          }
+          System.out.println("Optional Seed: Type a number 1-10000 or type 0 for a randomly generated seed");
+          int seeddd = reader.nextInt();
+          if(seed == 0){
+            seeddd = seed;
+          }
+
+          Board customBoard = new Board(row, col, bomb, seeddd);
+          while(!lost){
+            System.out.println(customBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              customBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            customBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(customBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(customBoard);
+            }
+          }
+      }
+      catch(Exception i){
+        System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
+      }
+      }
+
+
+      else{
+        System.out.println("Invalid entry. Re-run the program and make sure you enter in an valid integer level: 1, 2, 3, or 4");
+      }
+  }
+}
+
+
+/*
+public class TerminalDemo {
+
+  public static void putString(int r, int c,Terminal t, String s){
+    t.moveCursor(r,c);
+    for(int i = 0; i < s.length();i++){
+      t.putCharacter(s.charAt(i));
+    }
+  }
+
+  public static void putString(int r, int c,Terminal t,
+        String s, Terminal.Color forg, Terminal.Color back ){
+    t.moveCursor(r,c);
+    t.applyBackgroundColor(forg);
+    t.applyForegroundColor(Terminal.Color.BLACK);
+
+    for(int i = 0; i < s.length();i++){
+      t.putCharacter(s.charAt(i));
+    }
+    t.applyBackgroundColor(Terminal.Color.DEFAULT);
+    t.applyForegroundColor(Terminal.Color.DEFAULT);
+  }
+  public static void main(String[] args) {
+
+    Terminal terminal = TerminalFacade.createTextTerminal();
+    terminal.enterPrivateMode();
+
+    TerminalSize size = terminal.getTerminalSize();
+    terminal.setCursorVisible(false);
+
+    boolean running = true;
+    int mode = 0;
+    long lastTime =  System.currentTimeMillis();
+    long currentTime = lastTime;
+    long timer = 0;
+
+
+    while(running){
+      Key key = terminal.readInput();
+      if (key != null)
+      {
+
+        //YOU CAN PUT DIFFERENT SETS OF BUTTONS FOR DIFFERENT MODES!!!
+
+        //only for the game mode.
+        if(mode == 0){
+          if (key.getKind() == Key.Kind.Escape) {
+            terminal.exitPrivateMode();
+            running = false;
+          }
+        }
+
+        //for all modes
+        if (key.getCharacter() == ' ') {
+          mode++;
+          mode%=2;//2 modes
+          terminal.clearScreen();
+          lastTime = System.currentTimeMillis();
+          currentTime = System.currentTimeMillis();
+        }
+      }
+
+      terminal.applySGR(Terminal.SGR.ENTER_BOLD);
+      putString(1,1,terminal, "This is mode "+mode,Terminal.Color.WHITE,Terminal.Color.RED);
+      terminal.applySGR(Terminal.SGR.RESET_ALL);
+
+
+      if(mode==0){
+        lastTime = currentTime;
+        currentTime = System.currentTimeMillis();
+        timer += (currentTime -lastTime);//add the amount of time since the last frame.
+        //DO GAME STUFF HERE
+        putString(1,3,terminal, "Game here...",Terminal.Color.WHITE,Terminal.Color.RED);
+        putString(3,5,terminal, "Time: "+timer,Terminal.Color.WHITE,Terminal.Color.RED);
+
+      }else{
+
+        terminal.applySGR(Terminal.SGR.ENTER_BOLD,Terminal.SGR.ENTER_BLINK);
+        putString(1,3,terminal, "Not game, just a pause!",Terminal.Color.RED,Terminal.Color.WHITE);
+        terminal.applySGR(Terminal.SGR.RESET_ALL);
+
+      }
+
+    }
+
+
+  }
+}
+
 
 // DAFTTTT DRAFFFTTTTS
 public class TerminalDemo{
@@ -202,3 +475,4 @@ public class TerminalDemo{
 
 
 }
+*/

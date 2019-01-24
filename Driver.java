@@ -54,14 +54,22 @@ public class Driver extends Board{
             int yCor = reader.nextInt();
             if(covering == 1){
               easyBoard.uncoverZeros(xCor, yCor);
+              easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+              if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
+                lost = true;
+                System.out.println(easyBoard);
+              }
             }
-            if(covering == 2){
+            else if(covering == 2){
               covering = -1;
+              easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+              if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
+                lost = true;
+                System.out.println(easyBoard);
+              }
             }
-            easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
-            if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
-              lost = true;
-              System.out.println(easyBoard);
+            else{
+              System.out.println("You must pick 1 or 2 for the first prompt");
             }
           }
         }
