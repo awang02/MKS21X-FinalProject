@@ -199,6 +199,91 @@ public class Board{
     return print + "\nSeed: " + seed;
   }
 
+  public void uncover(int xx, int yy){
+
+  }
+
+  public void uncoverZeros(int xx, int yy){
+    if (xx < 0 || xx > rows || yy < 0 || yy > cols){
+      return;
+    }
+    if(!cellGrid[xx][yy].isMineNumZero() || cellGrid[xx][yy].getCovered() == 1){ //Mine is not zero or you've already been here
+      return;
+    }
+  //  if(cellGrid[xx][yy].isMineNumZero() && cellGrid[xx][yy].getCovered() != 0){ //Mine is not zero or you've already been here
+  //    return;
+  //  }
+    //if MinesNum is zero
+    cellGrid[xx][yy].setCovered(1);
+    uncoverZeros(xx + 1, yy);
+    System.out.println("A");
+    uncoverZeros(xx - 1, yy);
+    System.out.println("B");
+    uncoverZeros(xx, yy + 1);
+    System.out.println("C");
+    uncoverZeros(xx, yy - 1);
+    System.out.println("D");
+
+    /*cellGrid[xx][yy + 1].setCovered(1);
+    cellGrid[xx][yy - 1].setCovered(1);
+    cellGrid[xx + 1][yy].setCovered(1);
+    cellGrid[xx - 1][yy].setCovered(1);
+
+    cellGrid[xx + 1][yy - 1].setCovered(1);
+    cellGrid[xx + 1][yy + 1].setCovered(1);
+    cellGrid[xx - 1][yy + 1].setCovered(1);
+    cellGrid[xx - 1][yy - 1].setCovered(1);
+*/
+  }
+}
+/*
+
+public void uncoverZeros(int xx, int yy){
+  if(cellGrid[xx][yy].isMineNumZero()){
+    cellGrid[xx][yy].setCovered(1);
+    if(cellGrid[xx][yy + 1].isMineNumZero()){
+      cellGrid[xx][yy + 1].setCovered(1);
+      uncoverZeros(xx,yy - 1);
+      System.out.println("A");
+    }
+    if(cellGrid[xx][yy - 1].isMineNumZero()){
+      cellGrid[xx][yy - 1].setCovered(1);
+      uncoverZeros(xx,yy - 1);
+      System.out.println("B");
+    }
+    if(cellGrid[xx + 1][yy].isMineNumZero()){
+      cellGrid[xx + 1][yy].setCovered(1);
+      uncoverZeros(xx - 1,yy);
+      System.out.println("C");
+    }
+    if(cellGrid[xx - 1][yy].isMineNumZero()){
+      cellGrid[xx - 1][yy].setCovered(1);
+      uncoverZeros(xx - 1,yy);
+      System.out.println("D");
+    }
+    if(cellGrid[xx + 1][yy + 1].isMineNumZero()){
+      cellGrid[xx + 1][yy + 1].setCovered(1);
+      uncoverZeros(xx + 1,yy + 1);
+      System.out.println("E");
+    }
+    if(cellGrid[xx + 1][yy - 1].isMineNumZero()){
+      cellGrid[xx + 1][yy - 1].setCovered(1);
+      uncoverZeros(xx + 1,yy - 1);
+      System.out.println("F");
+    }
+    if(cellGrid[xx - 1][yy + 1].isMineNumZero()){
+      cellGrid[xx - 1][yy + 1].setCovered(1);
+      uncoverZeros(xx - 1,yy + 1);
+      System.out.println("G");
+    }
+    if(cellGrid[xx - 1][yy - 1].isMineNumZero()){
+      cellGrid[xx - 1][yy - 1].setCovered(1);
+      uncoverZeros(xx - 1,yy - 1);
+      System.out.println("H");
+    }
+  }
+}
+
 
   public void uncoverZeros(int x, int y, Board bebe) {
     if (x < 0 || x > rows || y < 0 || y > cols) {
@@ -238,36 +323,10 @@ public class Board{
        return;
     }
   }
+}
 
-/*  public void uncoverZeros(int xx, int yy){
-    if(cellGrid[xx][yy].isMineNumZero()){
-      cellGrid[xx][yy].setCovered(1);
-      if(cellGrid[xx][yy + 1].isMineNumZero()){
-        cellGrid[xx][yy + 1].setCovered(1);
-      }
-      if(cellGrid[xx][yy - 1].isMineNumZero()){
-        cellGrid[xx][yy - 1].setCovered(1);
-      }
-      if(cellGrid[xx + 1][yy].isMineNumZero()){
-        cellGrid[xx + 1][yy].setCovered(1);
-      }
-      if(cellGrid[xx - 1][yy].isMineNumZero()){
-        cellGrid[xx - 1][yy].setCovered(1);
-      }
-      if(cellGrid[xx + 1][yy + 1].isMineNumZero()){
-        cellGrid[xx + 1][yy + 1].setCovered(1);
-      }
-      if(cellGrid[xx + 1][yy - 1].isMineNumZero()){
-        cellGrid[xx + 1][yy - 1].setCovered(1);
-      }
-      if(cellGrid[xx - 1][yy + 1].isMineNumZero()){
-        cellGrid[xx - 1][yy + 1].setCovered(1);
-      }
-      if(cellGrid[xx - 1][yy - 1].isMineNumZero()){
-        cellGrid[xx - 1][yy - 1].setCovered(1);
-      }
-    }
-  }
+
+
 
 
 
@@ -345,8 +404,3 @@ public class Board{
     return print + "\nSeed: " + seed;
   }
   */
-
-
-
-
-}

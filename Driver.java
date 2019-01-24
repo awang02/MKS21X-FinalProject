@@ -45,18 +45,18 @@ public class Driver extends Board{
         Board easyBoard = new Board(10, 10, 10, 444);
         while(!lost){
           System.out.println(easyBoard.toStringBoard());
-          System.out.println(easyBoard.toStringDebug());
+      //    System.out.println(easyBoard.toStringDebug());
           System.out.println("Uncover(1) or flag(2)? ");
           int covering = reader.nextInt();
           System.out.println("Enter row (number): ");
           int xCor = reader.nextInt();
           System.out.println("Enter column (letter): ");
           int yCor = reader.nextInt();
-          if(covering == 1 && easyBoard.getCell(xCor, yCor).isMineNumZero()){
-            easyBoard.uncoverZeros(xCor, yCor, easyBoard);
+
+          easyBoard.uncoverZeros(xCor, yCor);
 
 
-          }
+
           if(covering == 2){
             covering = -1;
           }
@@ -87,6 +87,8 @@ public class Driver extends Board{
       else{
         System.out.println("Invalid entry. Re-run the program and make sure you enter in an valid integer level 1, 2, 3, or 4");
       }
+  }
+}
 
 
 /*    //CUSTOM WORKDS BUT SCRATCHED
@@ -183,12 +185,12 @@ public class Driver extends Board{
   //    Board tester6 = new Board(6, 6, 10, 2);
   //    System.out.println(tester6);
       //
-  }
 
 
 
 
-}
+
+
 
 /*  public static void putString(int r, int c,Terminal t, String s){
 		t.moveCursor(r,c);
