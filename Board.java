@@ -60,9 +60,9 @@ public class Board{
     for(int q = 0; q < cellGrid.length; q++){
       for(int t = 0; t < cellGrid[0].length; t++){
         cellGrid[0][t].mineNumPlus();
-        cellGrid[rows][t].mineNumPlus();
+        cellGrid[rows+1][t].mineNumPlus();
         cellGrid[q][0].mineNumPlus();
-        cellGrid[q][cols].mineNumPlus();
+        cellGrid[q][cols+1].mineNumPlus();
       }
     }
   }
@@ -225,13 +225,10 @@ public class Board{
     //if MinesNum is zero
     cellGrid[xx][yy].setCovered(1);
     uncoverZeros(xx + 1, yy);
-    System.out.println("A");
     uncoverZeros(xx - 1, yy);
-    System.out.println("B");
     uncoverZeros(xx, yy + 1);
-    System.out.println("C");
     uncoverZeros(xx, yy - 1);
-    System.out.println("D");
+
 
     /*cellGrid[xx][yy + 1].setCovered(1);
     cellGrid[xx][yy - 1].setCovered(1);
