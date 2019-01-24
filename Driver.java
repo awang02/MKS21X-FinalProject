@@ -40,129 +40,149 @@ public class Driver extends Board{
 
 
       if(a == 1){
-        System.out.println("Easy Mode (10x10 - 10 Mines)");
-        Board easyBoard = new Board(10, 10, 10, seed);
-        while(!lost){
-          System.out.println(easyBoard.toStringBoard());
-      //    System.out.println(easyBoard.toStringDebug());
-          System.out.println("Uncover(1) or flag(2)? ");
-          int covering = reader.nextInt();
-          System.out.println("Enter row (number): ");
-          int xCor = reader.nextInt();
-          System.out.println("Enter column (letter): ");
-          int yCor = reader.nextInt();
-          if(covering == 1){
-            easyBoard.uncoverZeros(xCor, yCor);
+        try{
+          System.out.println("Easy Mode (10x10 - 10 Mines)");
+          Board easyBoard = new Board(10, 10, 10, seed);
+          while(!lost){
+            System.out.println(easyBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              easyBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(easyBoard);
+            }
           }
-          if(covering == 2){
-            covering = -1;
-          }
-          easyBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
-          if(easyBoard.getCell(xCor - 1, yCor - 1).isMine()){
-            lost = true;
-            System.out.println(easyBoard);
-          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
         }
       }
 
       else if(a == 2){
-        System.out.println("Medium Mode (16x16 - 40 Mines)");
-        Board mediumBoard = new Board(16, 16, 40, seed);
-        while(!lost){
-          System.out.println(mediumBoard.toStringBoard());
-      //    System.out.println(easyBoard.toStringDebug());
-          System.out.println("Uncover(1) or flag(2)? ");
-          int covering = reader.nextInt();
-          System.out.println("Enter row (number): ");
-          int xCor = reader.nextInt();
-          System.out.println("Enter column (letter): ");
-          int yCor = reader.nextInt();
-          if(covering == 1){
-            mediumBoard.uncoverZeros(xCor, yCor);
+        try{
+          System.out.println("Medium Mode (16x16 - 40 Mines)");
+          Board mediumBoard = new Board(16, 16, 40, seed);
+          while(!lost){
+            System.out.println(mediumBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              mediumBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            mediumBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(mediumBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(mediumBoard);
+            }
           }
-          if(covering == 2){
-            covering = -1;
-          }
-          mediumBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
-          if(mediumBoard.getCell(xCor - 1, yCor - 1).isMine()){
-            lost = true;
-            System.out.println(mediumBoard);
-          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
         }
 
       }
       else if(a == 3){
-        System.out.println("Hard Mode (16x30 - 99 Mines)");
-        Board hardBoard = new Board(16, 30, 99, seed);
-        while(!lost){
-          System.out.println(hardBoard.toStringBoard());
-      //    System.out.println(easyBoard.toStringDebug());
-          System.out.println("Uncover(1) or flag(2)? ");
-          int covering = reader.nextInt();
-          System.out.println("Enter row (number): ");
-          int xCor = reader.nextInt();
-          System.out.println("Enter column (letter): ");
-          int yCor = reader.nextInt();
-          if(covering == 1){
-            hardBoard.uncoverZeros(xCor, yCor);
+        try{
+          System.out.println("Hard Mode (16x30 - 99 Mines)");
+          Board hardBoard = new Board(16, 30, 99, seed);
+          while(!lost){
+            System.out.println(hardBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              hardBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            hardBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(hardBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(hardBoard);
+            }
           }
-          if(covering == 2){
-            covering = -1;
-          }
-          hardBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
-          if(hardBoard.getCell(xCor - 1, yCor - 1).isMine()){
-            lost = true;
-            System.out.println(hardBoard);
-          }
+        }
+        catch(Exception u){
+          System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
         }
       }
 
 
       else if(a == 4){
+        try{
 
-        System.out.println("Custom Mode (max: 30x24 - 200 Mines)");
-        System.out.println("Number of rows? (up to 30)");
-        int row = reader.nextInt();
-        System.out.println("Number of columns? (up to 24)");
-        int col = reader.nextInt();
-        if((row < 0) || (col < 0)){
-          System.out.println("The row and column must be positive");
-          System.exit(1);
-        }
-        System.out.println("Number of mines?");
-        int bomb = reader.nextInt();
-        if (row * col < bomb){
-          System.out.println("The number of mines exceeds the number of cells");
-          System.exit(1);
-        }
-        System.out.println("Optional Seed: Type a number 1-10000 or type 0 for a randomly generated seed");
-        int seeddd = reader.nextInt();
-        if(seed == 0){
-          seeddd = seed;
-        }
+          System.out.println("Custom Mode (max: 30x24 - 200 Mines)");
+          System.out.println("Number of rows? (up to 30)");
+          int row = reader.nextInt();
+          System.out.println("Number of columns? (up to 24)");
+          int col = reader.nextInt();
+          if((row < 0) || (col < 0)){
+            System.out.println("The row and column must be positive");
+            System.exit(1);
+          }
+          System.out.println("Number of mines?");
+          int bomb = reader.nextInt();
+          if (row * col < bomb){
+            System.out.println("The number of mines exceeds the number of cells");
+            System.exit(1);
+          }
+          System.out.println("Optional Seed: Type a number 1-10000 or type 0 for a randomly generated seed");
+          int seeddd = reader.nextInt();
+          if(seed == 0){
+            seeddd = seed;
+          }
 
-        Board customBoard = new Board(row, bomb, 10, seeddd);
-        while(!lost){
-          System.out.println(customBoard.toStringBoard());
-      //    System.out.println(easyBoard.toStringDebug());
-          System.out.println("Uncover(1) or flag(2)? ");
-          int covering = reader.nextInt();
-          System.out.println("Enter row (number): ");
-          int xCor = reader.nextInt();
-          System.out.println("Enter column (letter): ");
-          int yCor = reader.nextInt();
-          if(covering == 1){
-            customBoard.uncoverZeros(xCor, yCor);
+          Board customBoard = new Board(row, col, bomb, seeddd);
+          while(!lost){
+            System.out.println(customBoard.toStringBoard());
+        //    System.out.println(easyBoard.toStringDebug());
+            System.out.println("Uncover(1) or flag(2)? ");
+            int covering = reader.nextInt();
+            System.out.println("Enter row (number): ");
+            int xCor = reader.nextInt();
+            System.out.println("Enter column (letter): ");
+            int yCor = reader.nextInt();
+            if(covering == 1){
+              customBoard.uncoverZeros(xCor, yCor);
+            }
+            if(covering == 2){
+              covering = -1;
+            }
+            customBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
+            if(customBoard.getCell(xCor - 1, yCor - 1).isMine()){
+              lost = true;
+              System.out.println(customBoard);
+            }
           }
-          if(covering == 2){
-            covering = -1;
-          }
-          customBoard.getCell(xCor - 1, yCor - 1).setCovered(covering);
-          if(customBoard.getCell(xCor - 1, yCor - 1).isMine()){
-            lost = true;
-            System.out.println(customBoard);
-          }
-        }
+      }
+      catch(Exception i){
+        System.out.println("Invalid entries. Make sure your rows and cols values are positive and within' bounds");
+      }
       }
 
 

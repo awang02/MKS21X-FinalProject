@@ -219,9 +219,6 @@ public class Board{
     if(!cellGrid[xx][yy].isMineNumZero() || cellGrid[xx][yy].getCovered() == 1 || cellGrid[xx][yy].getCovered() == -1){ //Mine is not zero or you've already been here (flagged/uncovered)
       return;
     }
-  //  if(cellGrid[xx][yy].isMineNumZero() && cellGrid[xx][yy].getCovered() != 0){ //Mine is not zero or you've already been here
-  //    return;
-  //  }
     //if MinesNum is zero
     cellGrid[xx][yy].setCovered(1);
     uncoverZeros(xx + 1, yy);
